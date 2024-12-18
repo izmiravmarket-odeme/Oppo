@@ -16,6 +16,7 @@
     "security-node"
   ],
   "rules": {
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
     "@typescript-eslint/camelcase": "off", // leave off
     "@typescript-eslint/member-ordering": "off",
     "@typescript-eslint/no-empty-function": "off",
