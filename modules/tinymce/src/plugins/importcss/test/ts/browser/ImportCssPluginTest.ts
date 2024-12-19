@@ -218,7 +218,7 @@ describe('browser.tinymce.plugins.importcss.ImportCssTest', () => {
     {
       content_css: [ '/project/tinymce/src/plugins/importcss/test/css/basic.css' ],
       importcss_append: false,
-      importcss_selector_filter: (sel: string) => sel.indexOf('p') > -1 || sel.indexOf('inline') > -1
+      importcss_selector_filter: (sel: string) => sel.includes('p') || sel.includes('inline')
     }
   ));
 
@@ -274,7 +274,7 @@ describe('browser.tinymce.plugins.importcss.ImportCssTest', () => {
         '/project/tinymce/src/plugins/importcss/test/css/other-adv.css'
       ],
       importcss_append: false,
-      importcss_file_filter: (href: string) => href.indexOf('adv') > -1
+      importcss_file_filter: (href: string) => href.includes('adv')
     }
   ));
 

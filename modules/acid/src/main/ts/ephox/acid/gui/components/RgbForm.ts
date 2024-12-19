@@ -37,13 +37,11 @@ interface RGBTooltipSpec {
 
 export type RGBTooltipGetConfig = (spec: RGBTooltipSpec) => TooltippingTypes.TooltippingConfigSpec;
 
-// tslint:disable:no-empty-interface
 export interface RgbFormDetail extends Sketcher.SingleSketchDetail {
 }
 
 export interface RgbFormSpec extends Sketcher.SingleSketchSpec {
 }
-// tslint:enable:no-empty-interface
 
 export interface RgbFormSketcher extends Sketcher.SingleSketch<RgbFormSpec> {
   updateHex: (slider: AlloyComponent, colour: Hex) => void;

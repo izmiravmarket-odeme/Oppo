@@ -15,7 +15,7 @@ const browser = platform.browser;
 const os = platform.os;
 const deviceType = platform.deviceType;
 
-const windowsPhone = userAgent.indexOf('Windows Phone') !== -1;
+const windowsPhone = userAgent.includes('Windows Phone');
 
 interface Version {
   major: number;

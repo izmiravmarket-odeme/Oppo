@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-wrapper-object-types */
 const getPrototypeOf = Object.getPrototypeOf;
 
 interface Constructor<T extends Object> {
@@ -20,7 +21,7 @@ const typeOf = (x: any): string => {
     return 'null';
   } else if (t === 'object' && Array.isArray(x)) {
     return 'array';
-  } else if (t === 'object' && hasProto(x, String, (o, proto) => proto.isPrototypeOf(o))) {
+  } else if (t === 'object' && hasProto(x, String, (o, proto) => Object.prototype.isPrototypeOf.call(proto, o))) {
     return 'string';
   } else {
     return t;

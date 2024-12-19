@@ -84,6 +84,8 @@ describe('browser.tinymce.themes.silver.window.SilverInlineDialogTest', () => {
           case 'confirm':
             editor.windowManager.confirm('Confirm!');
             break;
+          default:
+            break;
         }
       }
     };

@@ -31,7 +31,7 @@ const fromFontSizeNumber = (editor: Editor, value: string): string => {
 const normalizeFontNames = (font: string): string => {
   const fonts = font.split(/\s*,\s*/);
   return Arr.map(fonts, (font) => {
-    if (font.indexOf(' ') !== -1 && !(Strings.startsWith(font, '"') || Strings.startsWith(font, `'`))) {
+    if (font.includes(' ') && !(Strings.startsWith(font, '"') || Strings.startsWith(font, `'`))) {
       // TINY-3801: The font has spaces, so need to wrap with quotes as the browser sometimes automatically handles this, but not always
       return `'${font}'`;
     } else {

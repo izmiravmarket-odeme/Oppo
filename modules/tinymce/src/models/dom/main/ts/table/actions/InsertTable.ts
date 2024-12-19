@@ -28,7 +28,7 @@ const fireEvents = (editor: Editor, table: SugarElement<HTMLTableElement>): void
 };
 
 const isPercentage = (width: string): boolean =>
-  Type.isString(width) && width.indexOf('%') !== -1;
+  Type.isString(width) && width.includes('%');
 
 const insert = (editor: Editor, columns: number, rows: number, colHeaders: number, rowHeaders: number): HTMLTableElement | null => {
   const defaultStyles = Options.getTableDefaultStyles(editor);

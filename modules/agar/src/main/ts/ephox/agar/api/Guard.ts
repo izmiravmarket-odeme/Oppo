@@ -27,6 +27,7 @@ const tryUntilNot = <T, U>(label: string, interval: number = defaultInterval, am
         // Note, this one is fairly experimental.
         // Because errors cause die as well, this is not always the best option.
         // What we do is check to see if it is an error prototype.
+        // eslint-disable-next-line no-prototype-builtins
         if (Error.prototype.isPrototypeOf(err)) {
           die(err, newLogs);
         } else {

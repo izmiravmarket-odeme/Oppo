@@ -178,7 +178,7 @@ const revertToOriginal = (elem: SugarElement<HTMLElement>, box: Boxes.Bounds, st
           morph: 'static'
         });
 
-      case 'absolute':
+      case 'absolute': {
         const offsetParent = OffsetOrigin.getOffsetParent(elem).getOr(SugarBody.body());
         const offsetBox = Boxes.box(offsetParent);
         // Adding the scrollDelta here may not be the right solution. The basic problem is that the
@@ -206,7 +206,7 @@ const revertToOriginal = (elem: SugarElement<HTMLElement>, box: Boxes.Bounds, st
             Obj.get(position.style, 'bottom').map((_bottom) => offsetBox.bottom - box.bottom)
           )
         });
-
+      }
       default:
         return Optional.none<StaticMorph | AbsoluteMorph>();
     }
@@ -249,6 +249,7 @@ const tryDecisionToFixedMorph = (decision: DockingDecision): Optional<FixedMorph
       });
     }
 
+    case 'no-dock':
     default:
       return Optional.none();
   }

@@ -1053,7 +1053,7 @@ class Editor implements EditorObservable {
       !getOption('convert_urls') ||
       elm === 'link' ||
       (Type.isObject(elm) && (elm as HTMLElement).nodeName === 'LINK') ||
-      url.indexOf('file:') === 0 ||
+      url.startsWith('file:') ||
       url.length === 0 ) {
       return url;
     }

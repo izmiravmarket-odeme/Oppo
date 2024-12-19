@@ -18,6 +18,7 @@ export const validate = <T extends ResponseType>(responseType: ResponseBodyDataT
     case DataType.JSON: return JsonResponse.create(request.response).fold(error, FutureResult.pure);
     case DataType.Blob: return normal();
     case DataType.Text: return normal();
+    case DataType.MultipartFormData:
     default: return error('unknown data type');
   }
 };

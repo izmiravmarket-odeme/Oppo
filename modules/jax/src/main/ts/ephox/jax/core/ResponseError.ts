@@ -18,6 +18,7 @@ const getResponseText = (responseType: ResponseBodyDataTypes, request: XMLHttpRe
     case DataType.JSON: return JsonResponse.create(request.response).fold(() => fallback(request), Future.pure);
     case DataType.Blob: return getBlobError(request);
     case DataType.Text: return fallback(request);
+    case DataType.MultipartFormData:
     default: return fallback(request);
   }
 };

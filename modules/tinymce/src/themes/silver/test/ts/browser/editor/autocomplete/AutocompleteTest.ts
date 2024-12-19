@@ -136,7 +136,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteTest', (
           // Check the '=' is in the middle of a word
           rng.startOffset !== 0 && !/\s/.test(text.charAt(rng.startOffset - 1)),
         fetch: (pattern, _maxResults) => new Promise((resolve) => {
-          const filteredItems = Arr.filter([ 'two', 'three' ], (number) => number.indexOf(pattern) !== -1);
+          const filteredItems = Arr.filter([ 'two', 'three' ], (number) => number.includes(pattern));
           resolve(
             Arr.map(filteredItems, (number) => ({
               value: `${number}`,
@@ -182,7 +182,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteTest', (
             { text: 'dollar sign', value: '$' },
             { text: 'equals sign', value: '=' },
             { text: 'some name', value: '`' }
-          ], (item) => item.text.indexOf(pattern) !== -1);
+          ], (item) => item.text.includes(pattern));
           return new Promise((resolve) => {
             resolve(
               Arr.map(filteredItems, (item) => ({
@@ -209,7 +209,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteTest', (
           const filteredItems = Arr.filter([
             { text: 'equals sign', value: '=' },
             { text: 'plus sign', value: '+' }
-          ], (item) => item.text.indexOf(pattern) !== -1);
+          ], (item) => item.text.includes(pattern));
           return new Promise((resolve) => {
             resolve(
               Arr.map(filteredItems, (item) => ({

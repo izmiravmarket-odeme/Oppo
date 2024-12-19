@@ -36,7 +36,7 @@ const stringOrObjectProcessor = (value: unknown) =>
 const bodyOptionProcessor = (editor: Editor, defaultValue: string = '') => (value: unknown) => {
   const valid = Type.isString(value);
   if (valid) {
-    if (value.indexOf('=') !== -1) {
+    if (value.includes('=')) {
       const bodyObj = getHash(value);
       return { value: Obj.get(bodyObj, editor.id).getOr(defaultValue), valid };
     } else {

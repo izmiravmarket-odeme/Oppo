@@ -262,7 +262,7 @@ export const insertHtmlAtCaret = (editor: Editor, value: string, details: Insert
   }
 
   // Add caret at end of contents if it's missing
-  if (value.indexOf('{$caret}') === -1) {
+  if (!value.includes('{$caret}')) {
     value += '{$caret}';
   }
 

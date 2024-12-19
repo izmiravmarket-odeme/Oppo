@@ -56,7 +56,7 @@ const removeWebKitStyles = (editor: Editor, content: string, internal: boolean):
         let compareInput = inputValue;
         let currentValue = dom.getStyle(node, webKitStyles[i], true);
 
-        if (/color/.test(webKitStyles[i])) {
+        if (webKitStyles[i].includes('color')) {
           compareInput = rgbToHex(compareInput);
           currentValue = rgbToHex(currentValue);
         }

@@ -112,7 +112,7 @@ describe('atomic.katamari.api.str.StringMatchTest', () => {
         assert.equal(StringMatch.matches(
           StringMatch.contains(s1, StringMatch.caseInsensitive),
           s
-        ), s.toLowerCase().indexOf(s1.toLowerCase()) > -1);
+        ), s.toLowerCase().includes(s1.toLowerCase()));
       }
     ));
   });

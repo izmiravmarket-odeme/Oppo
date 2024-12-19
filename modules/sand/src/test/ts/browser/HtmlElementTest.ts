@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { context, describe, it } from '@ephox/bedrock-client';
 import { assert } from 'chai';
 

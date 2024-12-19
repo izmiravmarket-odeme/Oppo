@@ -57,7 +57,7 @@ export const InlineHeader = (
 
   const calcMode = (container: AlloyComponent): 'top' | 'bottom' => {
     switch (Options.getToolbarLocation(editor)) {
-      case ToolbarLocation.auto:
+      case ToolbarLocation.auto: {
         const toolbar = OuterContainer.getToolbar(mainUi.outerContainer);
         const offset = calcToolbarOffset(toolbar);
         const toolbarHeight = Height.get(container.element) - offset;
@@ -84,6 +84,7 @@ export const InlineHeader = (
             return isRoomAtBottomViewport ? 'bottom' : 'top';
           }
         }
+      }
       case ToolbarLocation.bottom:
         return 'bottom';
       case ToolbarLocation.top:

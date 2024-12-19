@@ -23,7 +23,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteCancelTe
         minChars: 1,
         columns: 'auto',
         fetch: (pattern, _maxResults) => {
-          const filteredItems = Arr.filter([ 'a', 'b', 'c', 'd' ], (item) => item.indexOf(pattern) !== -1);
+          const filteredItems = Arr.filter([ 'a', 'b', 'c', 'd' ], (item) => item.includes(pattern));
           return new Promise((resolve) => {
             resolve(
               Arr.map(filteredItems, (item) => ({

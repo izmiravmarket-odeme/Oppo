@@ -60,6 +60,8 @@ const insert = (editor: Editor, evt?: EditorEvent<KeyboardEvent>): void => {
       break;
     // implied by the options processor, unnecessary
     // case 'default':
+    case undefined:
+    case 'default':
     default:
       logicalAction.fold(br, block, Fun.noop);
       break;

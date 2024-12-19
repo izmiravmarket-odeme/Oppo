@@ -48,9 +48,9 @@ const caseSensitive: (val: string) => string = Fun.identity;
 /** matches :: (StringMatch, String) -> Boolean */
 const matches = (subject: StringMatch, str: string): boolean => {
   return subject.fold(
-    (value, f) => f(str).indexOf(f(value)) === 0,
+    (value, f) => f(str).startsWith(f(value)),
     (regex, f) => regex.test(f(str)),
-    (value, f) => f(str).indexOf(f(value)) >= 0,
+    (value, f) => f(str).includes(f(value)),
     (value, f) => f(str) === f(value),
     Fun.always,
     (other) => !matches(other, str)

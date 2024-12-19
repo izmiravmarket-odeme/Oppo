@@ -14,12 +14,10 @@ import * as SystemEvents from '../../api/events/SystemEvents';
 import { TogglingConfigSpec } from '../../behaviour/toggling/TogglingTypes';
 import * as Fields from '../../data/Fields';
 import * as ButtonBase from '../../ui/common/ButtonBase';
-import { ItemTogglingConfigSpec, NormalItemDetail } from '../../ui/types/ItemTypes';
+import { ItemTogglingConfigSpec, NormalItemDetail, NormalItemDetailRole } from '../../ui/types/ItemTypes';
 import * as ItemEvents from '../util/ItemEvents';
 
-type ItemRole = 'menuitem' | 'menuitemcheckbox' | 'menuitemradio';
-
-const getItemRole = (detail: NormalItemDetail): ItemRole | string =>
+const getItemRole = (detail: NormalItemDetail): NormalItemDetailRole =>
   detail.role.fold(
     () => detail.toggling
       .map((toggling) => toggling.exclusive ? 'menuitemradio' : 'menuitemcheckbox')

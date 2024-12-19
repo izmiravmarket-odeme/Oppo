@@ -27,7 +27,7 @@ const delayedConfirm = (editor: Editor, message: string, callback: (state: boole
 
 const tryEmailTransform = (data: LinkDialogOutput): Optional<Transformer> => {
   const url = data.href;
-  const suggestMailTo = url.indexOf('@') > 0 && url.indexOf('/') === -1 && url.indexOf('mailto:') === -1;
+  const suggestMailTo = url.indexOf('@') > 0 && !url.includes('/') && !url.includes('mailto:');
   return suggestMailTo ? Optional.some({
     message: 'The URL you entered seems to be an email address. Do you want to add the required mailto: prefix?',
     preprocess: (oldData) => ({ ...oldData, href: 'mailto:' + url })

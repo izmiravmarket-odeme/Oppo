@@ -492,12 +492,12 @@ const DOMUtils = (doc: Document, settings: Partial<DOMUtilsSettings> = {}): DOMU
     let h = getStyle($elm, 'height');
 
     // Non pixel value, then force offset/clientWidth
-    if (!w || w.indexOf('px') === -1) {
+    if (!w || !w.includes('px')) {
       w = '0';
     }
 
     // Non pixel value, then force offset/clientWidth
-    if (!h || h.indexOf('px') === -1) {
+    if (!h || !h.includes('px')) {
       h = '0';
     }
 

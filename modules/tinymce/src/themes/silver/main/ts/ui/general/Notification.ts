@@ -16,7 +16,6 @@ export interface NotificationSketchApis {
   updateText: (comp: AlloyComponent, text: string) => void;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface NotificationSketchSpec extends Sketcher.SingleSketchSpec {
   readonly text: string;
   readonly level?: 'info' | 'warn' | 'warning' | 'error' | 'success';
@@ -27,7 +26,6 @@ export interface NotificationSketchSpec extends Sketcher.SingleSketchSpec {
   readonly backstageProvider: UiFactoryBackstageProviders;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface NotificationSketchDetail extends Sketcher.SingleSketchDetail {
   readonly text: string;
   readonly level: Optional<'info' | 'warn' | 'warning' | 'error' | 'success'>;

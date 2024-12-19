@@ -1,7 +1,7 @@
 import { Type } from '@ephox/katamari';
 
 const isCodeSample = (elm: Element | null): elm is HTMLPreElement => {
-  return Type.isNonNullable(elm) && elm.nodeName === 'PRE' && elm.className.indexOf('language-') !== -1;
+  return Type.isNonNullable(elm) && elm.nodeName === 'PRE' && elm.className.includes('language-');
 };
 
 const trimArg = <T>(predicateFn: (a: T) => boolean) => {

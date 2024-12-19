@@ -8,7 +8,6 @@ export interface SeparatorMenuItemSpec {
   text?: string;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface SeparatorMenuItemInstanceApi { }
 
 export interface SeparatorMenuItem {

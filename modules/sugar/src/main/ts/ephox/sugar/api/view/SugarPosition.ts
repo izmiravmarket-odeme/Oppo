@@ -14,5 +14,4 @@ const r = (left: number, top: number): SugarPosition => {
   };
 };
 
-// tslint:disable-next-line:variable-name
 export const SugarPosition = r;

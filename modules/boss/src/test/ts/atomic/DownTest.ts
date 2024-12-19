@@ -47,10 +47,10 @@ UnitTest.test('DownTest', () => {
   checkSelector([ '1.1', '1.1.1', '1.1.2', '1.1.2.1', '1.1.2.2', '1.1.2.2.1', '1.1.3', '1.1.4', '1.1.4.1' ], 'root,duck,goose');
 
   checkPredicate([], '1.1.4', (item) => {
-    return item.name.indexOf('g') > -1;
+    return item.name.includes('g');
   });
 
   checkPredicate([ '1.1.1', '1.1.2', '1.1.2.2.1' ], '1.1', (item) => {
-    return item.name.indexOf('g') > -1;
+    return item.name.includes('g');
   });
 });

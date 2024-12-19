@@ -61,7 +61,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteAriaTest
             minChars: 0,
             columns: 1,
             fetch: (pattern, _maxResults) => new Promise((resolve) => {
-              const filteredItems = Arr.filter([ 'aA', 'bB', 'cC', 'dD' ], (letter) => letter.indexOf(pattern) !== -1);
+              const filteredItems = Arr.filter([ 'aA', 'bB', 'cC', 'dD' ], (letter) => letter.includes(pattern));
               resolve(
                 Arr.map(filteredItems, (letter) => ({
                   value: `plus-${letter}`,
@@ -86,7 +86,7 @@ describe('browser.tinymce.themes.silver.editor.autocomplete.AutocompleteAriaTest
               const filteredItems = Arr.filter([
                 { text: 'equals sign', value: '=' },
                 { text: 'plus sign - D', value: '+' }
-              ], (item) => item.text.indexOf(pattern) !== -1);
+              ], (item) => item.text.includes(pattern));
               return new Promise((resolve) => {
                 resolve(
                   Arr.map(filteredItems, (item) => ({

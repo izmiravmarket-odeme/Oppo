@@ -483,7 +483,7 @@ describe('browser.tinymce.core.dom.DOMUtilsTest', () => {
     DOM.loadCSS('tinymce/dom/test.css?a=1,tinymce/dom/test.css?a=2,tinymce/dom/test.css?a=3');
 
     Tools.each(document.getElementsByTagName('link'), (n) => {
-      if (n.href.indexOf('test.css?a=') !== -1 && !n.crossOrigin) {
+      if (n.href.includes('test.css?a=') && !n.crossOrigin) {
         c++;
       }
     });
@@ -512,7 +512,7 @@ describe('browser.tinymce.core.dom.DOMUtilsTest', () => {
     CustomDOM.loadCSS('tinymce/dom/test_cors.css?a=1,tinymce/dom/test_cors.css?a=2,tinymce/dom/test_cors.css?a=3');
 
     Tools.each(iframeDoc.getElementsByTagName('link'), (n) => {
-      if (n.href.indexOf('test_cors.css?a=') !== -1 && n.crossOrigin === 'anonymous') {
+      if (n.href.includes('test_cors.css?a=') && n.crossOrigin === 'anonymous') {
         c++;
       }
     });

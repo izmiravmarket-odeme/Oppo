@@ -152,10 +152,11 @@ const factory: SingleSketchFactory<InlineViewDetail, InlineViewSpec> = (detail: 
           case 'menu':
             Sandboxing.getState(sandbox).each(TieredMenu.repositionMenus);
             break;
-          case 'position':
+          case 'position': {
             const sink = detail.lazySink(sandbox).getOrDie();
             Positioning.positionWithinBounds(sink, sandbox, state.config, state.getBounds());
             break;
+          }
         }
       });
     }

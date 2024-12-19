@@ -8,7 +8,7 @@ import Plugin from 'tinymce/plugins/fullscreen/Plugin';
 
 describe('webdriver.tinymce.plugins.fullscreen.FullScreenPluginNativeModeTest', () => {
   before(function () {
-    if (/HeadlessChrome/.test(window.navigator.userAgent)) {
+    if (window.navigator.userAgent.includes('HeadlessChrome')) {
       this.skip();
     }
   });

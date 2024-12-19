@@ -11,7 +11,6 @@ interface ToolbarGroupSetting {
 
 type ToolbarConfig = string | ToolbarGroupSetting[];
 
-// tslint:disable-next-line:no-empty-interface
 export interface GroupToolbarButtonInstanceApi extends BaseToolbarButtonInstanceApi {
 
 }

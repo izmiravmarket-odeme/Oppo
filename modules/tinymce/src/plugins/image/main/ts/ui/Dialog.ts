@@ -91,7 +91,7 @@ const addPrependUrl2 = (info: ImageDialogInfo, srcURL: string): Optional<string>
   // Add the prependURL
   if (!/^(?:[a-zA-Z]+:)?\/\//.test(srcURL)) {
     return info.prependURL.bind((prependUrl) => {
-      if (srcURL.substring(0, prependUrl.length) !== prependUrl) {
+      if (!srcURL.startsWith(prependUrl)) {
         return Optional.some(prependUrl + srcURL);
       }
       return Optional.none();

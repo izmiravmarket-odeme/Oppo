@@ -19,7 +19,7 @@ const getCaretRangeFromEvent = (editor: Editor, e: MouseEvent): Range | undefine
 
 const isPlainTextFileUrl = (content: Clipboard.ClipboardContents): boolean => {
   const plainTextContent = content['text/plain'];
-  return plainTextContent ? plainTextContent.indexOf('file://') === 0 : false;
+  return plainTextContent ? plainTextContent.startsWith('file://') : false;
 };
 
 const setFocusedRange = (editor: Editor, rng: Range | undefined): void => {
@@ -30,7 +30,7 @@ const setFocusedRange = (editor: Editor, rng: Range | undefined): void => {
 };
 
 const hasImage = (dataTransfer: DataTransfer): boolean =>
-  Arr.exists(dataTransfer.files, (file) => /^image\//.test(file.type));
+  Arr.exists(dataTransfer.files, (file) => file.type.startsWith('image/'));
 
 const needsCustomInternalDrop = (dom: DOMUtils, schema: Schema, target: Node, dropContent: Clipboard.ClipboardContents) => {
   const parentTransparent = dom.getParent(target, (node) => TransparentElements.isTransparentBlock(schema, node));

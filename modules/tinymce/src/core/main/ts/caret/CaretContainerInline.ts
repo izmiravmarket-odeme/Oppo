@@ -5,9 +5,11 @@ import * as Zwsp from '../text/Zwsp';
 
 const isText = NodeType.isText;
 const startsWithCaretContainer = (node: Node): boolean =>
+  // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
   isText(node) && node.data[0] === Zwsp.ZWSP;
 
 const endsWithCaretContainer = (node: Node): boolean =>
+  // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
   isText(node) && node.data[node.data.length - 1] === Zwsp.ZWSP;
 
 const createZwsp = (node: Node): Text => {

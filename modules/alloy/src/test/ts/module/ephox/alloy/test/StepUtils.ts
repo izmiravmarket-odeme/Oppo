@@ -17,7 +17,7 @@ const sAssertFailContains = <T>(label: string, expected: string, f: () => void):
         f();
         passed = true;
       } catch (err) {
-        Assertions.assertEq('Checking err message contains: ' + expected, true, (err as Error).message.indexOf(expected) > -1);
+        Assertions.assertEq('Checking err message contains: ' + expected, true, (err as Error).message.includes(expected));
       }
 
       if (passed) {

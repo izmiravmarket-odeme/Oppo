@@ -166,7 +166,7 @@ UnitTest.test('Arbitraries Test', () => {
   );
 
   checkProperty('Table cell elements', Arbitraries.content('tablecell'), (element: SugarElement<HTMLTableCellElement>) => {
-    Assertions.assertEq('Cells should be th|td', true, [ 'td', 'th' ].indexOf(SugarNode.name(element)) > -1);
+    Assertions.assertEq('Cells should be th|td', true, [ 'td', 'th' ].includes(SugarNode.name(element)));
     return true;
   });
 
@@ -221,7 +221,7 @@ UnitTest.test('Arbitraries Test', () => {
   });
 
   checkProperty('ol and ul elements', Arbitraries.content('list'), (element: SugarElement<HTMLOListElement | HTMLUListElement>) => {
-    Assertions.assertEq('Lists should be ol|ul', true, [ 'ol', 'ul' ].indexOf(SugarNode.name(element)) > -1);
+    Assertions.assertEq('Lists should be ol|ul', true, [ 'ol', 'ul' ].includes(SugarNode.name(element)));
     return true;
   });
 

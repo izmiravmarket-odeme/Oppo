@@ -116,7 +116,7 @@ const dataToHtml = (editor: Editor, dataIn: MediaData): string => {
       return getIframeHtml(data, iframeTemplateCallback);
     } else if (data.sourcemime === 'application/x-shockwave-flash') {
       return getFlashHtml(data);
-    } else if (data.sourcemime.indexOf('audio') !== -1) {
+    } else if (data.sourcemime.includes('audio')) {
       return getAudioHtml(data, audioTemplateCallback);
     } else {
       return getVideoHtml(data, videoTemplateCallback);

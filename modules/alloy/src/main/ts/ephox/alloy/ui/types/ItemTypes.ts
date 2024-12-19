@@ -68,6 +68,8 @@ export interface NormalItemSpec {
   hasSubmenu?: boolean;
 }
 
+export type NormalItemDetailRole = 'menuitem' | 'menuitemcheckbox' | 'menuitemradio' | 'option';
+
 export interface NormalItemDetail extends ItemDetail {
   data: ItemDataTuple;
   components: AlloySpec[];
@@ -79,7 +81,7 @@ export interface NormalItemDetail extends ItemDetail {
   eventOrder: Record<string, string[]>;
   builder: <NormalItemInfo>(buildInfo: NormalItemInfo) => AlloySpec;
   hasSubmenu: boolean;
-  role: Optional<string>;
+  role: Optional<NormalItemDetailRole>;
 }
 
 export interface ItemDetail {

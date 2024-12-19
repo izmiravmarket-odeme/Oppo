@@ -2,7 +2,7 @@ import { Strings, Type } from '@ephox/katamari';
 
 export const setTinymceBaseUrl = (tinymce: any, baseUrl: string): void => {
   const prefix = document.location.protocol + '//' + document.location.host;
-  tinymce.baseURL = baseUrl.indexOf('://') === -1 ? prefix + baseUrl : baseUrl;
+  tinymce.baseURL = !baseUrl.includes('://') ? prefix + baseUrl : baseUrl;
   tinymce.baseURI = new tinymce.util.URI(tinymce.baseURL);
 };
 

@@ -70,13 +70,15 @@ const loadUiSkins = (editor: Editor, skinUrl: string): Promise<void> => {
   const loader = editor.ui.styleSheetLoader;
   const decision = determineCSSDecision(editor, 'skin', skinUrl);
   switch (decision._kind) {
-    case 'load-raw':
+    case 'load-raw': {
       const { key, css } = decision;
       loadRawCss(editor, key, css, loader);
       return Promise.resolve();
-    case 'load-stylesheet':
+    }
+    case 'load-stylesheet': {
       const { url } = decision;
       return loadStylesheet(editor, url, loader);
+    }
     default:
       return Promise.resolve();
   }
@@ -90,13 +92,15 @@ const loadShadowDomUiSkins = (editor: Editor, skinUrl: string): Promise<void> =>
     const loader = DOMUtils.DOM.styleSheetLoader;
     const decision = determineCSSDecision(editor, 'skin.shadowdom', skinUrl);
     switch (decision._kind) {
-      case 'load-raw':
+      case 'load-raw': {
         const { key, css } = decision;
         loadRawCss(editor, key, css, loader);
         return Promise.resolve();
-      case 'load-stylesheet':
+      }
+      case 'load-stylesheet': {
         const { url } = decision;
         return loadStylesheet(editor, url, loader);
+      }
       default:
         return Promise.resolve();
     }
@@ -107,7 +111,7 @@ const loadUiContentCSS = (editor: Editor, isInline: boolean, skinUrl?: string): 
   const filenameBase = isInline ? 'content.inline' : 'content';
   const decision = determineCSSDecision(editor, filenameBase, skinUrl);
   switch (decision._kind) {
-    case 'load-raw':
+    case 'load-raw': {
       const { key, css } = decision;
       if (isInline) {
         loadRawCss(editor, key, css, editor.ui.styleSheetLoader);
@@ -119,12 +123,14 @@ const loadUiContentCSS = (editor: Editor, isInline: boolean, skinUrl?: string): 
         });
       }
       return Promise.resolve();
-    case 'load-stylesheet':
+    }
+    case 'load-stylesheet': {
       const { url } = decision;
       if (skinUrl) {
         editor.contentCSS.push(url);
       }
       return Promise.resolve();
+    }
     default:
       return Promise.resolve();
   }

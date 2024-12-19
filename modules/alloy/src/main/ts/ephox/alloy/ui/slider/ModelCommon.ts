@@ -6,7 +6,7 @@ import { NativeSimulatedEvent } from '../../events/SimulatedEvent';
 const _sliderChangeEvent = 'slider.change.value';
 const sliderChangeEvent = Fun.constant(_sliderChangeEvent);
 
-const isTouchEvent = (evt: MouseEvent | TouchEvent): evt is TouchEvent => evt.type.indexOf('touch') !== -1;
+const isTouchEvent = (evt: MouseEvent | TouchEvent): evt is TouchEvent => evt.type.includes('touch');
 
 const getEventSource = (simulatedEvent: NativeSimulatedEvent<MouseEvent | TouchEvent>): Optional<SugarPosition> => {
   const evt = simulatedEvent.event.raw;

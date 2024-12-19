@@ -27,7 +27,7 @@ interface UrlMeta {
 
 const DOM = DOMUtils.DOM;
 
-const hasSkipLoadPrefix = (name: string) => name.charAt(0) === '-';
+const hasSkipLoadPrefix = (name: string) => name.startsWith('-');
 
 const loadLanguage = (scriptLoader: ScriptLoader, editor: Editor) => {
   const languageCode = Options.getLanguageCode(editor);

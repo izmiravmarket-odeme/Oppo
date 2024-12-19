@@ -48,7 +48,7 @@ const setup = (editor: Editor): void => {
         // Add width/height to everything but audio
         if (realElmName !== 'audio') {
           const className = node.attr('class');
-          if (className && className.indexOf('mce-preview-object') !== -1 && node.firstChild) {
+          if (className && className.includes('mce-preview-object') && node.firstChild) {
             realElm.attr({
               width: node.firstChild.attr('width'),
               height: node.firstChild.attr('height')
@@ -71,7 +71,7 @@ const setup = (editor: Editor): void => {
         while (ai--) {
           const attrName = attribs[ai].name;
 
-          if (attrName.indexOf('data-mce-p-') === 0) {
+          if (attrName.startsWith('data-mce-p-')) {
             realElm.attr(attrName.substr(11), attribs[ai].value);
           }
         }

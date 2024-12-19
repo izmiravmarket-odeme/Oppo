@@ -37,7 +37,6 @@ const before = adt.before;
 const on = adt.on;
 const after = adt.after;
 
-// tslint:disable-next-line:variable-name
 export const Situ = {
   before,
   on,

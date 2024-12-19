@@ -144,6 +144,8 @@ const parseSelectorItem = (item: string): PreviewItem => {
             obj.attrs[$2] = $2;
           }
           break;
+        default:
+          break;
       }
 
       // attribute matched
@@ -276,7 +278,7 @@ const getCssText = (editor: Editor, format: string | ApplyFormat): string => {
 
   // Get parent container font size so we can compute px values out of em/% for older IE:s
   const rawParentFontSize = getComputedStyle('fontSize');
-  const parentFontSize = /px$/.test(rawParentFontSize) ? parseInt(rawParentFontSize, 10) : 0;
+  const parentFontSize = rawParentFontSize.endsWith('px') ? parseInt(rawParentFontSize, 10) : 0;
 
   each(previewStyles.split(' '), (name) => {
     let value = getComputedStyle(name, previewElm);
@@ -308,7 +310,7 @@ const getCssText = (editor: Editor, format: string | ApplyFormat): string => {
         }
 
         // Convert font size from em/% to px
-        const numValue = parseFloat(value) / (/%$/.test(value) ? 100 : 1);
+        const numValue = parseFloat(value) / (value.endsWith('%') ? 100 : 1);
         value = (numValue * parentFontSize) + 'px';
       }
     }

@@ -1062,7 +1062,7 @@ describe('browser.tinymce.core.dom.SelectionTest', () => {
   it('selectorChanged', () => {
     const editor = hook.editor();
     let newState: boolean | undefined;
-    let newArgs: { node: Node; selector: String; parents: Node[] } | undefined;
+    let newArgs: { node: Node; selector: string; parents: Node[] } | undefined;
 
     editor.selection.selectorChanged('a[href]', (state, args) => {
       newState = state;
@@ -1089,7 +1089,7 @@ describe('browser.tinymce.core.dom.SelectionTest', () => {
   it('selectorChangedWithUnbind', () => {
     const editor = hook.editor();
     let newState: boolean | undefined;
-    let newArgs: { node: Node; selector: String; parents: Node[] } | undefined;
+    let newArgs: { node: Node; selector: string; parents: Node[] } | undefined;
     let calls = 0;
 
     const { unbind } = editor.selection.selectorChangedWithUnbind('a[href]', (state, args) => {
@@ -1120,7 +1120,7 @@ describe('browser.tinymce.core.dom.SelectionTest', () => {
   it('TINY-3463: selectorChanged should setup the active state if already selected', () => {
     const editor = hook.editor();
     let newState: boolean | undefined;
-    let newArgs: { node: Node; selector: String; parents: Node[] } | undefined;
+    let newArgs: { node: Node; selector: string; parents: Node[] } | undefined;
 
     editor.setContent('<p>some <a href="#">text</a></p>');
     LegacyUnit.setSelection(editor, 'a', 0, 'a', 4);

@@ -124,7 +124,7 @@ const EditorUpload = (editor: Editor): EditorUpload => {
     };
   };
 
-  const cacheInvalidator = (url: string): string => url + (url.indexOf('?') === -1 ? '?' : '&') + (new Date()).getTime();
+  const cacheInvalidator = (url: string): string => url + (!url.includes('?') ? '?' : '&') + (new Date()).getTime();
 
   // Replaces strings without regexps to avoid FF regexp to big issue
   const replaceString = (content: string, search: string, replace: string): string => {

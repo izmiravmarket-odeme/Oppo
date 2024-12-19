@@ -15,7 +15,7 @@ const find = (queryElem: SugarElement<Node>): Optional<SugarElement<Element>> =>
       return false;
     }
     const id = Attribute.get(elem, 'id');
-    return id !== undefined && id.indexOf(attribute) > -1;
+    return id !== undefined && id.includes(attribute);
   });
 
   return dependent.bind((dep) => {

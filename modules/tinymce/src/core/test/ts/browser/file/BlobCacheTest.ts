@@ -40,7 +40,7 @@ describe('browser.tinymce.core.file.BlobCacheTest', () => {
     blobCache.add(blobInfo);
 
     assert.deepEqual(blobCache.get(id), blobInfo, 'Testing get()');
-    assert.isTrue(blobInfo.blobUri().indexOf('blob:') === 0, 'BlobInfo instance has blobUri() accessor');
+    assert.isTrue(blobInfo.blobUri().startsWith('blob:'), 'BlobInfo instance has blobUri() accessor');
     assert.deepEqual(blobCache.getByUri(blobInfo.blobUri()), blobInfo, 'Testing getByUri(), findFirst()');
     assert.deepEqual(blobCache.getByData(base64, type), blobInfo, 'Testing getByData()');
 

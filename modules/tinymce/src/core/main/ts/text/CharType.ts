@@ -6,7 +6,7 @@ const is = (expected: string) => (actual: string): boolean =>
 const isNbsp = is(Unicode.nbsp);
 
 const isWhiteSpace = (chr: string): boolean =>
-  chr !== '' && ' \f\n\r\t\v'.indexOf(chr) !== -1;
+  chr !== '' && ' \f\n\r\t\v'.includes(chr);
 
 const isContent = (chr: string): boolean =>
   !isWhiteSpace(chr) && !isNbsp(chr) && !Unicode.isZwsp(chr);

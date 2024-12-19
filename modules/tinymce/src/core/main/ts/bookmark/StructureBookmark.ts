@@ -1,3 +1,5 @@
+import { Obj } from '@ephox/katamari';
+
 import * as NodeType from '../dom/NodeType';
 
 export interface ElementBookmark {
@@ -17,8 +19,8 @@ export interface StructureBookmark {
   end: BookmarkEndpoint;
 }
 
-const isTextEndpoint = (endpoint: BookmarkEndpoint): endpoint is TextBookmark => endpoint.hasOwnProperty('text');
-const isElementEndpoint = (endpoint: BookmarkEndpoint): endpoint is ElementBookmark => endpoint.hasOwnProperty('marker');
+const isTextEndpoint = (endpoint: BookmarkEndpoint): endpoint is TextBookmark => Obj.has((endpoint as TextBookmark), 'text');
+const isElementEndpoint = (endpoint: BookmarkEndpoint): endpoint is ElementBookmark => Obj.has((endpoint as ElementBookmark), 'marker');
 
 export const getBookmark = (range: Range, createMarker: () => Node): StructureBookmark => {
   const getEndpoint = (container: Node, offset: number): ElementBookmark | TextBookmark => {

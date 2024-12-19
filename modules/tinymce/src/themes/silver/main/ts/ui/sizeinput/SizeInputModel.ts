@@ -28,7 +28,7 @@ export const formatSize = (size: Size): string => {
   };
   const maxDecimal = (unit: SizeUnit) => unit in unitDec ? unitDec[unit] : 1;
   let numText = size.value.toFixed(maxDecimal(size.unit));
-  if (numText.indexOf('.') !== -1) {
+  if (numText.includes('.')) {
     numText = numText.replace(/\.?0*$/, '');
   }
   return numText + size.unit;

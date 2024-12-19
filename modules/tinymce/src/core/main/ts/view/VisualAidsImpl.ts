@@ -9,7 +9,7 @@ export const addVisualInternal = (editor: Editor, elm?: HTMLElement): void => {
 
   Arr.each(dom.select('table,a', scope), (matchedElm) => {
     switch (matchedElm.nodeName) {
-      case 'TABLE':
+      case 'TABLE': {
         const cls = Options.getVisualAidsTableClass(editor);
         const value = dom.getAttrib(matchedElm, 'border');
 
@@ -20,8 +20,9 @@ export const addVisualInternal = (editor: Editor, elm?: HTMLElement): void => {
         }
 
         break;
+      }
 
-      case 'A':
+      case 'A': {
         if (!dom.getAttrib(matchedElm, 'href')) {
           const value = dom.getAttrib(matchedElm, 'name') || matchedElm.id;
           const cls = Options.getVisualAidsAnchorClass(editor);
@@ -33,6 +34,9 @@ export const addVisualInternal = (editor: Editor, elm?: HTMLElement): void => {
           }
         }
 
+        break;
+      }
+      default:
         break;
     }
   });

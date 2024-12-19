@@ -79,6 +79,7 @@ const getDialogSizeClass = (size: Dialog.DialogSize): Optional<string> => {
       return Optional.some(largeDialogClass);
     case 'medium':
       return Optional.some(mediumDialogClass);
+    case 'normal':
     default:
       return Optional.none();
   }

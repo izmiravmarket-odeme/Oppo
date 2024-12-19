@@ -29,7 +29,6 @@ export interface ToolbarToggleButton extends BaseToolbarToggleButton<ToolbarTogg
   shortcut: Optional<string>;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface ToolbarToggleButtonInstanceApi extends BaseToolbarToggleButtonInstanceApi {
 
 }

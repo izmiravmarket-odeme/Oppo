@@ -10,7 +10,7 @@ UnitTest.test('PrioritySortTest', () => {
     // TODO: Use ResultAssertions test?
     actual.fold((err) => {
       const errMessage = Arr.map(err, (e) => e.message !== undefined ? e.message : e).join('');
-      Assert.eq('Checking the error of priority sort', errMessage.indexOf(expected) > -1, true);
+      Assert.eq('Checking the error of priority sort', errMessage.includes(expected), true);
     }, (val) => {
       Assert.fail('Priority sort should have thrown error: ' + expected + '\nWas: ' + JSON.stringify(val, null, 2));
     });

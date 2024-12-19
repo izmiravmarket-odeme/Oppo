@@ -98,7 +98,6 @@ export default (): void => {
 
       // Provide image and alt text for the image dialog
       if (meta.filetype === 'image') {
-        // tslint:disable-next-line: no-debugger
         callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text', style: 'border: 10px solid black;' });
       }
 

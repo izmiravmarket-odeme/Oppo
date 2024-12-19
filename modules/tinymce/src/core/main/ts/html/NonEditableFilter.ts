@@ -8,7 +8,7 @@ import { EditorEvent } from '../api/util/EventDispatcher';
 import Tools from '../api/util/Tools';
 
 const hasClass = (checkClassName: string) => (node: AstNode): boolean =>
-  (' ' + node.attr('class') + ' ').indexOf(checkClassName) !== -1;
+  (' ' + node.attr('class') + ' ').includes(checkClassName);
 
 const replaceMatchWithSpan = (editor: Editor, content: string, cls: string) => {
   // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
@@ -26,7 +26,7 @@ const replaceMatchWithSpan = (editor: Editor, content: string, cls: string) => {
       const findStartTagIndex = content.lastIndexOf('<', index);
       if (findStartTagIndex !== -1) {
         const tagHtml = content.substring(findStartTagIndex, index);
-        if (tagHtml.indexOf('contenteditable="false"') !== -1) {
+        if (tagHtml.includes('contenteditable="false"')) {
           return match;
         }
       }

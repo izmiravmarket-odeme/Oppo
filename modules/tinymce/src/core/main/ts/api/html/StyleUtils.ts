@@ -2,7 +2,7 @@ import { Arr, Obj, Strings } from '@ephox/katamari';
 
 import DOMUtils from '../dom/DOMUtils';
 
-const nonInheritableStyles: Set<string> = new Set();
+const nonInheritableStyles = new Set<string>();
 (() => {
   // TODO: TINY-7326 Figure out what else should go in the nonInheritableStyles list
   const nonInheritableStylesArr = [
@@ -22,7 +22,7 @@ const nonInheritableStyles: Set<string> = new Set();
   });
 })();
 
-const conditionalNonInheritableStyles: Set<string> = new Set();
+const conditionalNonInheritableStyles = new Set<string>();
 (() => {
   // These styles are only noninheritable when applied to an element with a noninheritable style
   // For example, background-color is visible on an element with padding, even when children have background-color;

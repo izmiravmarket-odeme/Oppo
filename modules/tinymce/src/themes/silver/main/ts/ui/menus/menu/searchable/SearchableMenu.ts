@@ -26,6 +26,8 @@ const identifyMenuLayout = (searchMode: MenuSearchMode): MenuLayoutType => {
         menuType: 'normal'
       };
     }
+    case 'search-with-field':
+    case 'search-with-results':
     default: {
       return {
         menuType: 'searchable',

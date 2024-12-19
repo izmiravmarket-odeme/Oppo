@@ -83,6 +83,8 @@ const createMenuItemFromBridge = (
         // Fancy menu items don't have shortcuts or icons
         (d) => MenuItems.fancy(d, backstage)
       );
+    case undefined:
+    case 'choiceitem':
     default: {
       // eslint-disable-next-line no-console
       console.error('Unknown item in general menu', item);
@@ -137,6 +139,7 @@ export const createAutocompleteItems = (
           );
 
         case 'autocompleteitem':
+        case undefined:
         default:
           return InlineContent.createAutocompleterItem(item as InlineContent.AutocompleterItemSpec).fold(
             MenuUtils.handleError,

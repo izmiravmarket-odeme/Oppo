@@ -110,7 +110,7 @@ const makeEventLogger = (eventName: string, initialTarget: SugarElement<Node>): 
 const processEvent = (eventName: string, initialTarget: SugarElement<Node>, f: EventProcessor) => {
   const status = Obj.get(eventConfig.get(), eventName).orThunk(() => {
     const patterns = Obj.keys(eventConfig.get());
-    return Arr.findMap(patterns, (p) => eventName.indexOf(p) > -1 ? Optional.some(eventConfig.get()[p]) : Optional.none());
+    return Arr.findMap(patterns, (p) => eventName.includes(p) ? Optional.some(eventConfig.get()[p]) : Optional.none());
   }).getOr(
     EventConfiguration.NORMAL
   );
@@ -143,7 +143,7 @@ const getTrace = (): string => {
   const err = new Error();
   if (err.stack !== undefined) {
     const lines = err.stack.split('\n');
-    return Arr.find(lines, (line) => line.indexOf('alloy') > 0 && !Arr.exists(path, (p) => line.indexOf(p) > -1)).getOr(unknown);
+    return Arr.find(lines, (line) => line.indexOf('alloy') > 0 && !Arr.exists(path, (p) => line.includes(p))).getOr(unknown);
   } else {
     return unknown;
   }

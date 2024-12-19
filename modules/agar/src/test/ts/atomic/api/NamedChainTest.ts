@@ -15,6 +15,7 @@ UnitTest.asynctest('NamedChainTest', (success, failure) => {
       if (expected === actual) {
         next(actual);
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-base-to-string
         die('Unexpected input. Expected: ' + expected + ', Actual: ' + actual);
       }
     });

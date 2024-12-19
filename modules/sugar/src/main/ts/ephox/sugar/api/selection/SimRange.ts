@@ -14,7 +14,6 @@ const create = (start: SugarElement<Node>, soffset: number, finish: SugarElement
   foffset
 });
 
-// tslint:disable-next-line:variable-name
 export const SimRange = {
   create
 };

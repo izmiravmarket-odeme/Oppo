@@ -29,11 +29,12 @@ const render = (items: Menu.CardItem[], extras: CardExtras): Array<AlloySpec> =>
     case 'cardimage':
       return renderImage(item.src, item.classes, item.alt);
 
-    case 'cardtext':
+    case 'cardtext': {
       // Only highlight targeted text components
       const shouldHighlight = item.name.exists((name) => Arr.contains(extras.cardText.highlightOn, name));
       const matchText = shouldHighlight ? Optional.from(extras.cardText.matchText).getOr('') : '';
       return renderHtml(replaceText(item.text, matchText), item.classes);
+    }
   }
 });
 

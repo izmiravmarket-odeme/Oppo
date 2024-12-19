@@ -66,7 +66,6 @@ const descendant: {
   (scope: SugarElement<Node>, predicate: (e: SugarElement<Node>) => boolean): Optional<SugarElement<Node & ChildNode>>;
 } = (scope: SugarElement<Node>, predicate: (e: SugarElement<Node>) => boolean) => {
   const descend = (node: Node): Optional<SugarElement<Node & ChildNode>> => {
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < node.childNodes.length; i++) {
       const child = SugarElement.fromDom(node.childNodes[i]);
       if (predicate(child)) {

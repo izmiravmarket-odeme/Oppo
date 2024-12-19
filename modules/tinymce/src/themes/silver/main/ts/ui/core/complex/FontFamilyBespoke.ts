@@ -30,10 +30,10 @@ const splitFonts = (fontFamily: string): string[] => {
   return Arr.map(fonts, (font) => font.replace(/^['"]+|['"]+$/g, ''));
 };
 
-const matchesStack = (fonts: string[], stack: string[]): boolean => stack.length > 0 && Arr.forall(stack, (font) => fonts.indexOf(font.toLowerCase()) > -1);
+const matchesStack = (fonts: string[], stack: string[]): boolean => stack.length > 0 && Arr.forall(stack, (font) => fonts.includes(font.toLowerCase()));
 
 const isSystemFontStack = (fontFamily: string, userStack: string[]): boolean => {
-  if (fontFamily.indexOf('-apple-system') === 0 || userStack.length > 0) {
+  if (fontFamily.startsWith('-apple-system') || userStack.length > 0) {
     const fonts = splitFonts(fontFamily.toLowerCase());
     return matchesStack(fonts, systemStackFonts) || matchesStack(fonts, userStack);
   } else {
@@ -73,7 +73,7 @@ const getSpec = (editor: Editor): SelectSpec => {
 
   const getPreviewFor = (item: string) => () => Optional.some<PreviewSpec>({
     tag: 'div',
-    styles: item.indexOf('dings') === -1 ? { 'font-family': item } : { }
+    styles: !item.includes('dings') ? { 'font-family': item } : { }
   });
 
   const onAction = (rawItem: FormatterFormatItem) => () => {

@@ -24,12 +24,10 @@ export interface ContextFormLaunchToggleButton extends BaseToolbarToggleButton<B
   type: 'contextformtogglebutton';
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface ContextFormButtonInstanceApi extends BaseToolbarButtonInstanceApi {
 
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface ContextFormToggleButtonInstanceApi extends BaseToolbarToggleButtonInstanceApi {
 
 }

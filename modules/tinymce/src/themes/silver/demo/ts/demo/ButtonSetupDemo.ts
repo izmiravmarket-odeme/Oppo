@@ -161,9 +161,9 @@ export default {
         ];
 
         const matches = Arr.filter(allMerges, (m): boolean => {
-          const valueMatches = m.value.toLowerCase().indexOf(searchPattern.toLowerCase()) > -1;
+          const valueMatches = m.value.toLowerCase().includes(searchPattern.toLowerCase());
           return valueMatches || (
-            m.title !== undefined && (m.title.toLowerCase().indexOf(searchPattern.toLowerCase()) > -1)
+            m.title !== undefined && (m.title.toLowerCase().includes(searchPattern.toLowerCase()))
           );
         });
 

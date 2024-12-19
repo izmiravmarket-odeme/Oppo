@@ -43,7 +43,7 @@ const randBlobDataUri = (width: number, height: number) => {
   return canvas.toDataURL();
 };
 
-const hasBlobAsSource = (elm: HTMLImageElement) => elm.src.indexOf('blob:') === 0;
+const hasBlobAsSource = (elm: HTMLImageElement) => elm.src.startsWith('blob:');
 const imageHtml = (uri: string) => DOMUtils.DOM.createHTML('img', { src: uri });
 
 describe('browser.tinymce.core.EditorUploadTest', () => {

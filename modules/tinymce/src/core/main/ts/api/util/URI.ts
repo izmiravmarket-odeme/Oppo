@@ -54,7 +54,7 @@ const decodeUri = (encodedUri: string) => {
   try {
     // Might throw malformed URI sequence
     return decodeURIComponent(encodedUri);
-  } catch (ex) {
+  } catch {
     // Fallback to non UTF-8 decoder
     return unescape(encodedUri);
   }
@@ -111,6 +111,7 @@ class URI {
     if (options.allow_script_urls) {
       return true;
     } else {
+      // eslint-disable-next-line no-control-regex
       const decodedUri = Entities.decode(uri).replace(/[\s\u0000-\u001F]+/g, '');
       return !isInvalidUri(options, decodedUri, context);
     }
@@ -120,7 +121,7 @@ class URI {
     let baseUrl: string;
 
     // Pass applewebdata:// and other non web protocols though
-    if (loc.protocol.indexOf('http') !== 0 && loc.protocol !== 'file:') {
+    if (!loc.protocol.startsWith('http') && loc.protocol !== 'file:') {
       baseUrl = loc.href ?? '';
     } else {
       baseUrl = loc.protocol + '//' + loc.host + loc.pathname;
@@ -174,10 +175,10 @@ class URI {
       return;
     }
 
-    const isProtocolRelative = url.indexOf('//') === 0;
+    const isProtocolRelative = url.startsWith('//');
 
     // Absolute path with no host, fake host and protocol
-    if (url.indexOf('/') === 0 && !isProtocolRelative) {
+    if (url.startsWith('/') && !isProtocolRelative) {
       url = (baseUri ? baseUri.protocol || 'http' : 'http') + '://mce_host' + url;
     }
 
@@ -284,7 +285,7 @@ class URI {
     const tu = this.getURI(), uu = relativeUri.getURI();
 
     // Allow usage of the base_uri when relative_urls = true
-    if (tu === uu || (tu.charAt(tu.length - 1) === '/' && tu.substr(0, tu.length - 1) === uu)) {
+    if (tu === uu || (tu.endsWith('/') && tu.substr(0, tu.length - 1) === uu)) {
       return tu;
     }
 
@@ -409,7 +410,7 @@ class URI {
     let nb = 0;
 
     // Split paths
-    const tr = /\/$/.test(path) ? '/' : '';
+    const tr = path.endsWith('/') ? '/' : '';
     const normalizedBase = base.split('/');
     const normalizedPath = path.split('/');
 
@@ -455,12 +456,12 @@ class URI {
     }
 
     // Add front / if it's needed
-    if (outPath.indexOf('/') !== 0) {
+    if (!outPath.startsWith('/')) {
       outPath = '/' + outPath;
     }
 
     // Add trailing / if it's needed
-    if (tr && outPath.lastIndexOf('/') !== outPath.length - 1) {
+    if (tr && !outPath.endsWith('/')) {
       outPath += tr;
     }
 

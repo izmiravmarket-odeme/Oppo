@@ -14,6 +14,7 @@ const getContentType = (requestBody: RequestBody): Optional<string> => Optional.
     case DataType.FormData: return Optional.some('application/x-www-form-urlencoded; charset=UTF-8');
     case DataType.MultipartFormData: return Optional.none();
     case DataType.Text: return Optional.some('text/plain');
+    case DataType.Blob:
     default: return Optional.some('text/plain');
   }
 });
@@ -23,6 +24,7 @@ const getAccept = (responseType: ResponseBodyDataTypes) => {
     case DataType.Blob: return 'application/octet-stream';
     case DataType.JSON: return 'application/json, text/javascript';
     case DataType.Text: return 'text/plain';
+    case DataType.MultipartFormData:
     default: return '';
   }
 };
@@ -32,6 +34,7 @@ const getResponseType = (responseType: ResponseBodyDataTypes): Optional<'blob' |
     case DataType.JSON: return Optional.none();
     case DataType.Blob: return Optional.some<'blob' | 'text'>('blob');
     case DataType.Text: return Optional.some<'blob' | 'text'>('text');
+    case DataType.MultipartFormData:
     default: return Optional.none();
   }
 };

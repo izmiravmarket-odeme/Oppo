@@ -30,7 +30,6 @@ const unmerge = (grid: Structs.RowCells[], target: SugarElement<HTMLElement>, co
   const rows = GridRow.extractGridDetails(grid).rows;
   // Mutating. Do we care about the efficiency gain?
   let first = true;
-  // tslint:disable-next-line:prefer-for-of
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < GridRow.cellLength(rows[0]); j++) {
       const row = rows[i];

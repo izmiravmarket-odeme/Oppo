@@ -133,6 +133,7 @@ const events = (tooltipConfig: TooltippingConfig, state: TooltippingState): Allo
             }, Fun.noop);
           }),
         ];
+      case 'children-keyboard-focus':
       default:
         return [
           AlloyEvents.run(NativeEvents.focusin(), (comp, se) => {

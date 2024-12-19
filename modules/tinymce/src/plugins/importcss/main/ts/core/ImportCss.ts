@@ -46,7 +46,7 @@ const isSkinContentCss = (editor: Editor, href: string): boolean => {
     const skinUrl = skinUrlBase ? editor.documentBaseURI.toAbsolute(skinUrlBase) : EditorManager.baseURL + '/skins/ui/' + skin;
     const contentSkinUrlPart = EditorManager.baseURL + '/skins/content/';
     const suffix = editor.editorManager.suffix;
-    return href === skinUrl + '/content' + (editor.inline ? '.inline' : '') + `${suffix}.css` || href.indexOf(contentSkinUrlPart) !== -1;
+    return href === skinUrl + '/content' + (editor.inline ? '.inline' : '') + `${suffix}.css` || href.includes(contentSkinUrlPart);
   }
 
   return false;
@@ -55,7 +55,7 @@ const isSkinContentCss = (editor: Editor, href: string): boolean => {
 const compileFilter = (filter: string | RegExp | Filter | undefined): Filter | undefined => {
   if (Type.isString(filter)) {
     return (value: string) => {
-      return value.indexOf(filter) !== -1;
+      return value.includes(filter);
     };
   } else if (filter instanceof RegExp) {
     return (value: string) => {
@@ -90,7 +90,7 @@ const getSelectors = (editor: Editor, doc: Document, fileFilter: Filter | undefi
 
     try {
       rules = styleSheet.cssRules || styleSheet.rules;
-    } catch (e) {
+    } catch {
       // Firefox fails on rules to remote domain for example:
       // @import url(//fonts.googleapis.com/css?family=Pathway+Gothic+One);
     }
@@ -120,7 +120,7 @@ const getSelectors = (editor: Editor, doc: Document, fileFilter: Filter | undefi
     Tools.each(doc.styleSheets, (styleSheet) => {
       append(styleSheet);
     });
-  } catch (e) {
+  } catch {
     // Ignore
   }
 

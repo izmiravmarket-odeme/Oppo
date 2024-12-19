@@ -95,6 +95,10 @@ const types: Record<string, BridgeRenderFn<any>> = {
       switch (getToolbarMode(editor)) {
         case ToolbarMode.floating:
           return renderFloatingToolbarButton(s, backstage, identify, attributes, btnName);
+        case 'floating':
+        case 'sliding':
+        case 'scrolling':
+        case 'wrap':
         default:
           // TODO change this message and add a case when sliding is available
           throw new Error('Toolbar groups are only supported when using floating toolbar mode');

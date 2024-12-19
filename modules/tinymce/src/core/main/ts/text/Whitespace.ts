@@ -14,7 +14,7 @@ const isZwsp = (text: string): boolean => {
 };
 
 // Don't compare other unicode spaces here, as we're only concerned about whitespace the browser would collapse
-const isCollapsibleWhitespace = (c: string): boolean => ' \f\t\v'.indexOf(c) !== -1;
+const isCollapsibleWhitespace = (c: string): boolean => ' \f\t\v'.includes(c);
 const isNewLineChar = (c: string): boolean => c === '\n' || c === '\r';
 const isNewline = (text: string, idx: number): boolean => (idx < text.length && idx >= 0) ? isNewLineChar(text[idx]) : false;
 

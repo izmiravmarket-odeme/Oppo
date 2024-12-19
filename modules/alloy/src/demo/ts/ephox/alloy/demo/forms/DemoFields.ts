@@ -50,7 +50,7 @@ const rawTextMunger = (spec: TextMungerSpec) => {
   const pField = FormField.parts.field({
     factory: Input,
     inputBehaviours: Behaviour.derive([
-      invalidation((v) => v.indexOf('a') === 0 ? Result.error('Do not start with a!') : Result.value({ }), invalidUid),
+      invalidation((v) => v.startsWith('a') ? Result.error('Do not start with a!') : Result.value({ }), invalidUid),
       Tabstopping.config({ })
     ])
   });

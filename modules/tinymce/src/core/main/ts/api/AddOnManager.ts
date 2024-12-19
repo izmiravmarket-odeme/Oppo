@@ -139,7 +139,7 @@ const AddOnManager = <T>(): AddOnManager<T> => {
     const language = I18n.getCode();
     const wrappedLanguages = ',' + (languages || '') + ',';
 
-    if (!language || languages && wrappedLanguages.indexOf(',' + language + ',') === -1) {
+    if (!language || languages && !wrappedLanguages.includes(',' + language + ',')) {
       return;
     }
 
@@ -187,7 +187,7 @@ const AddOnManager = <T>(): AddOnManager<T> => {
 
     let urlString = Type.isString(addOnUrl) ? addOnUrl : addOnUrl.prefix + addOnUrl.resource + addOnUrl.suffix;
 
-    if (urlString.indexOf('/') !== 0 && urlString.indexOf('://') === -1) {
+    if (!urlString.startsWith('/') && !urlString.includes('://')) {
       urlString = AddOnManager.baseURL + '/' + urlString;
     }
 

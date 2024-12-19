@@ -19,12 +19,17 @@ interface RenderedUrlDialog {
   readonly instanceApi: Dialog.UrlDialogInstanceApi;
 }
 
+type MessageData = Dialog.UrlDialogMessage;
+
+const isDialogMessage = (data: any): data is MessageData =>
+  Type.isObject(data) && Type.isString((data as any).mceAction);
+
 // A list of supported message actions
 const SUPPORTED_MESSAGE_ACTIONS = [ 'insertContent', 'setContent', 'execCommand', 'close', 'block', 'unblock' ];
 
-const isSupportedMessage = (data: any): boolean => Type.isObject(data) && SUPPORTED_MESSAGE_ACTIONS.indexOf(data.mceAction) !== -1;
+const isSupportedMessage = (data: any): boolean => isDialogMessage(data) && SUPPORTED_MESSAGE_ACTIONS.includes(data.mceAction);
 
-const isCustomMessage = (data: any): boolean => !isSupportedMessage(data) && Type.isObject(data) && Obj.has(data, 'mceAction');
+const isCustomMessage = (data: any): boolean => !isSupportedMessage(data) && Obj.has(data, 'mceAction');
 
 const handleMessage = (editor: Editor, api: Dialog.UrlDialogInstanceApi, data: any) => {
   switch (data.mceAction) {
@@ -34,10 +39,11 @@ const handleMessage = (editor: Editor, api: Dialog.UrlDialogInstanceApi, data: a
     case 'setContent':
       editor.setContent(data.content);
       break;
-    case 'execCommand':
+    case 'execCommand': {
       const ui = Type.isBoolean(data.ui) ? data.ui : false;
       editor.execCommand(data.cmd, ui, data.value);
       break;
+    }
     case 'close':
       api.close();
       break;
@@ -46,6 +52,8 @@ const handleMessage = (editor: Editor, api: Dialog.UrlDialogInstanceApi, data: a
       break;
     case 'unblock':
       api.unblock();
+      break;
+    default:
       break;
   }
 };

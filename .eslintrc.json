@@ -16,6 +16,20 @@
     "security-node"
   ],
   "rules": {
+    "no-control-regex": "off",
+    "@typescript-eslint/no-redundant-type-constituents": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "no-misleading-character-class": "off",
+    "@typescript-eslint/switch-exhaustiveness-check": ["error", { "requireDefaultForNonUnion": true, "considerDefaultExhaustiveForUnions" : true}],
+    "@typescript-eslint/no-base-to-string": "off",
+    "@typescript-eslint/no-unsafe-function-type": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/only-throw-error": "off",
+    "@typescript-eslint/prefer-promise-reject-errors": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
+    "no-useless-escape": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/prefer-optional-chain": "off",
     "@typescript-eslint/non-nullable-type-assertion-style": "off",
     "@typescript-eslint/camelcase": "off", // leave off
     "@typescript-eslint/member-ordering": "off",

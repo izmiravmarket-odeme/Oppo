@@ -38,7 +38,7 @@ const hasOnlyAltModifier = (e: KeyboardEvent) => {
 const gotoLink = (editor: Editor, a: HTMLAnchorElement | undefined): void => {
   if (a) {
     const href = Utils.getHref(a);
-    if (/^#/.test(href)) {
+    if (href.startsWith('#')) {
       const targetEl = editor.dom.select(`${href},[name="${Strings.removeLeading(href, '#')}"]`);
       if (targetEl.length) {
         editor.selection.scrollIntoView(targetEl[0], true);

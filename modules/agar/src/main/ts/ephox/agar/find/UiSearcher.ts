@@ -32,9 +32,9 @@ const derive = (element: SugarElement<Node>, selector: string) => {
   // Not sure if error is what I want here.
   if (selector === undefined) {
     throw new Error('No selector passed through');
-  } else if (selector.indexOf('root:') === 0) {
+  } else if (selector.startsWith('root:')) {
     return targets.self(element, selector.substring('root:'.length));
-  } else if (selector.indexOf('root>') === 0) {
+  } else if (selector.startsWith('root>')) {
     return targets.children(element, selector.substring('root>'.length));
   } else {
     return targets.descendants(element, selector);

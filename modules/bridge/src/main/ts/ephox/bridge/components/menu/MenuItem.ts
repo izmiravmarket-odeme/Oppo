@@ -11,7 +11,6 @@ export interface MenuItemSpec extends CommonMenuItemSpec {
   onAction?: (api: MenuItemInstanceApi) => void;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface MenuItemInstanceApi extends CommonMenuItemInstanceApi { }
 
 export interface MenuItem extends CommonMenuItem {

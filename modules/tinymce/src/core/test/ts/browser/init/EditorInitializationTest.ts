@@ -146,7 +146,7 @@ describe('browser.tinymce.core.init.EditorInitializationTest', () => {
     return Arr.bind(SelectorFilter.descendants(SugarElement.fromDom(document), 'link'), (link) => {
       const href = Attribute.get(link, 'href') ?? '';
       const fileName = href.split('/').slice(-1).join('');
-      const isSkin = href.indexOf('oxide/') > -1;
+      const isSkin = href.includes('oxide/');
       return isSkin ? [ fileName ] : [ ];
     });
   };

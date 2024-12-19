@@ -29,7 +29,7 @@ const setup = (editor: Editor): void => {
       while (i--) {
         node = nodes[i];
         className = node.attr('class');
-        if (className && className.indexOf(pageBreakClass) !== -1) {
+        if (className && className.includes(pageBreakClass)) {
           // Replace parent block node if pagebreak_split_block is enabled
           const parentNode = node.parent;
           if (parentNode && editor.schema.getBlockElements()[parentNode.name] && shouldSplitBlock()) {

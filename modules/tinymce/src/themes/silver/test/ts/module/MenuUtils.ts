@@ -40,7 +40,7 @@ const pOpenAlignMenu = (label: string): Promise<void> => {
 };
 
 const pOpenMenu = (label: string, menuText: string): Promise<void> => {
-  const menuTextParts = menuText.indexOf(':') > -1 ? menuText.split(':') : [ menuText ];
+  const menuTextParts = menuText.includes(':') ? menuText.split(':') : [ menuText ];
   const btnText = menuTextParts[0];
   const pseudo = menuTextParts.length > 1 ? ':' + menuTextParts[1] : '';
   const selector = `button:contains(${btnText})${pseudo}`;

@@ -25,7 +25,6 @@ export interface ToolbarButtonSpec extends BaseToolbarButtonSpec<ToolbarButtonIn
   shortcut?: string;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface ToolbarButtonInstanceApi extends BaseToolbarButtonInstanceApi {
 
 }

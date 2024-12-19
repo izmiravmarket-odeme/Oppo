@@ -22,7 +22,7 @@ const transpose = (pos: Position, dx: number, dy: number) => {
   return nu(pos.x + dx, pos.y + dy);
 };
 
-const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent => e.type === 'longpress' || e.type.indexOf('touch') === 0;
+const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent => e.type === 'longpress' || e.type.startsWith('touch');
 
 const fromPageXY = (e: MouseEvent | TouchEvent) => {
   if (isTouchEvent(e)) {

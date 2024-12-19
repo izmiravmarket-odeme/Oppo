@@ -18,7 +18,9 @@ const isCaretContainerBlock = CaretContainer.isCaretContainerBlock;
 const isElement = NodeType.isElement;
 const isText = NodeType.isText;
 const isCaretCandidate = CaretCandidate.isCaretCandidate;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
 const isForwards = (direction: HDirection): boolean => direction > 0;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
 const isBackwards = (direction: HDirection): boolean => direction < 0;
 
 const skipCaretContainers = (walk: (shallow?: boolean) => Node | null | undefined, shallow?: boolean): Node | null => {

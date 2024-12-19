@@ -78,7 +78,6 @@ describe('browser.katamari.TypeBrowserTest', () => {
     const iframe = document.createElement('iframe');
 
     iframe.addEventListener('load', () => {
-      // tslint:disable-next-line: no-string-literal
       const frameEval = (script: string): any => {
         const cw: Window | null = iframe.contentWindow;
         if (cw == null) {

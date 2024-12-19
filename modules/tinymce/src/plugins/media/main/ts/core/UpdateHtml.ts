@@ -58,6 +58,8 @@ const updateHtml = (html: string, data: Partial<MediaData>, updateAll?: boolean,
               node.attr('height', data.height);
             }
             break;
+          default:
+            break;
         }
 
         if (updateAll) {
@@ -81,7 +83,7 @@ const updateHtml = (html: string, data: Partial<MediaData>, updateAll?: boolean,
               node.attr('src', data.source);
               break;
 
-            case 'object':
+            case 'object': {
               const hasImage = node.getAll('img').length > 0;
               if (data.poster && !hasImage) {
                 node.attr('src', data.poster);
@@ -93,6 +95,7 @@ const updateHtml = (html: string, data: Partial<MediaData>, updateAll?: boolean,
                 node.append(img);
               }
               break;
+            }
 
             case 'source':
               if (sourceCount < 2) {
@@ -111,6 +114,8 @@ const updateHtml = (html: string, data: Partial<MediaData>, updateAll?: boolean,
               if (!data.poster) {
                 node.remove();
               }
+              break;
+            default:
               break;
           }
         }

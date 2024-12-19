@@ -259,7 +259,7 @@ const isFormatPredicate = (editor: Editor, formatName: string, predicate: (forma
 
 const isVariableFormatName = (editor: Editor, formatName: string): boolean => {
   const hasVariableValues = (format: Format) => {
-    const isVariableValue = (val: FormatAttrOrStyleValue): boolean => Type.isFunction(val) || val.length > 1 && val.charAt(0) === '%';
+    const isVariableValue = (val: FormatAttrOrStyleValue): boolean => Type.isFunction(val) || val.length > 1 && val.startsWith('%');
     return Arr.exists([ 'styles', 'attributes' ], (key: 'styles' | 'attributes') =>
       Obj.get(format, key).exists((field) => {
         const fieldValues = Type.isArray(field) ? field : Obj.values(field);

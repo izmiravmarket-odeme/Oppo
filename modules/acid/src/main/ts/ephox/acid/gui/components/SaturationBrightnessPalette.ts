@@ -8,13 +8,11 @@ import * as HsvColour from '../../api/colour/HsvColour';
 import * as RgbaColour from '../../api/colour/RgbaColour';
 import * as ColourEvents from '../ColourEvents';
 
-// tslint:disable:no-empty-interface
 export interface SaturationBrightnessPaletteDetail extends Sketcher.SingleSketchDetail {
 }
 
 export interface SaturationBrightnessPaletteSpec extends Sketcher.SingleSketchSpec {
 }
-// tslint:enable:no-empty-interface
 
 export interface SaturationBrightnessPaletteSketcher extends Sketcher.SingleSketch<SaturationBrightnessPaletteSpec> {
   setHue: (slider: AlloyComponent, hue: number) => void;

@@ -24,7 +24,7 @@ describe('atomic.katamari.api.arr.ObjKeysTest', () => {
   it('only returns elements that are in the input', () => {
     fc.assert(fc.property(fc.dictionary(fc.asciiString(), fc.integer()), (obj) => {
       const keys = Obj.keys(obj);
-      return Arr.forall(keys, (k) => obj.hasOwnProperty(k));
+      return Arr.forall(keys, (k) => Object.prototype.hasOwnProperty.call(obj, k));
     }));
   });
 });

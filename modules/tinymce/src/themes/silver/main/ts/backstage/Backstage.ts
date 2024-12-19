@@ -74,7 +74,7 @@ const init = (lazySinks: { popup: () => Result<AlloyComponent, string>; dialog: 
         .fold(
           // Fallback to 'mode:design' if key is not found
           () => Obj.get(contexts, 'mode').map((pred) => pred('design')).getOr(false),
-          (pred) => value.charAt(0) === '!' ? !pred(value.slice(1)) : pred(value)
+          (pred) => value.startsWith('!') ? !pred(value.slice(1)) : pred(value)
         );
       return {
         contextType: key,

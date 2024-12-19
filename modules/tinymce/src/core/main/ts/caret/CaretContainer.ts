@@ -75,6 +75,7 @@ const insertInline = (node: Node, before: boolean): Text => {
 const prependInline = (node: Node | null): Node | null => {
   if (NodeType.isText(node)) {
     const data = node.data;
+    // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
     if (data.length > 0 && data.charAt(0) !== Zwsp.ZWSP) {
       node.insertData(0, Zwsp.ZWSP);
     }
@@ -87,6 +88,7 @@ const prependInline = (node: Node | null): Node | null => {
 const appendInline = (node: Node | null): Text | null => {
   if (NodeType.isText(node)) {
     const data = node.data;
+    // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
     if (data.length > 0 && data.charAt(data.length - 1) !== Zwsp.ZWSP) {
       node.insertData(data.length, Zwsp.ZWSP);
     }
@@ -138,9 +140,11 @@ const insertBlock = (blockName: string, node: Node, before: boolean): HTMLElemen
 };
 
 const startsWithCaretContainer = (node: Node | null): node is Text =>
+  // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
   isText(node) && node.data[0] === Zwsp.ZWSP;
 
 const endsWithCaretContainer = (node: Node | null): node is Text =>
+  // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
   isText(node) && node.data[node.data.length - 1] === Zwsp.ZWSP;
 
 const trimBogusBr = (elm: Element): void => {

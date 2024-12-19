@@ -40,7 +40,7 @@ const attemptSelectOver = (model: TypeaheadModelDetail, input: AlloyComponent, i
     const itemValue = Representing.getValue(item);
     const itemDisplay = model.getDisplayText(itemValue);
 
-    return itemDisplay.indexOf(inputDisplay) === 0 ?
+    return itemDisplay.startsWith(inputDisplay) ?
       Optional.some(() => {
         setValueFromItem(model, input, item);
         setSelectionToEnd(input, inputDisplay.length);

@@ -1,4 +1,4 @@
-import { Fun, Id, Singleton, Type } from '@ephox/katamari';
+import { Id, Singleton, Type } from '@ephox/katamari';
 import { PlatformDetection } from '@ephox/sand';
 import { Attribute, TextContent, Traverse } from '@ephox/sugar';
 
@@ -43,7 +43,9 @@ const factory: CompositeSketchFactory<ModalDialogDetail, ModalDialogSpec> = (det
         AddEventsBehaviour.config('dialog-blocker-events', [
           // Ensure we use runOnSource otherwise this would cause an infinite loop, as `focusIn` would fire a `focusin` which would then get responded to and so forth
           AlloyEvents.runOnSource(NativeEvents.focusin(), () => {
-            Blocking.isBlocked(dialog) ? Fun.noop() : Keying.focusIn(dialog);
+            if (!Blocking.isBlocked(dialog)) {
+              Keying.focusIn(dialog);
+            }
           })
         ])
       ])

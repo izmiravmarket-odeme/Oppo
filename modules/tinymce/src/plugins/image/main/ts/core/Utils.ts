@@ -93,6 +93,9 @@ const mergeMargins = (css: StyleMap): StyleMap => {
         css['margin-right'] = css['margin-right'] || splitMargin[1];
         css['margin-bottom'] = css['margin-bottom'] || splitMargin[2];
         css['margin-left'] = css['margin-left'] || splitMargin[3];
+        break;
+      default:
+        break;
     }
 
     delete css.margin;

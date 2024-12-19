@@ -5,12 +5,10 @@ export interface FormChangeEvent<T> extends CustomEvent {
   readonly name: keyof T;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface FormCloseEvent extends CustomEvent {
 
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface FormCancelEvent extends CustomEvent {
 
 }
@@ -20,17 +18,14 @@ export interface FormActionEvent extends CustomEvent {
   readonly value: any;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface FormSubmitEvent extends CustomEvent {
 
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface FormBlockEvent extends CustomEvent {
   readonly message: string;
 }
 
-// tslint:disable-next-line:no-empty-interface
 export interface FormUnblockEvent extends CustomEvent {
 
 }

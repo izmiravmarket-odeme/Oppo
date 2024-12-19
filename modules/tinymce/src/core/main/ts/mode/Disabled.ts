@@ -90,7 +90,7 @@ const processDisabledEvents = (editor: Editor, e: Event): void => {
     const elm = SugarElement.fromDom(e.target as Node);
     getAnchorHrefOpt(editor, elm).each((href) => {
       e.preventDefault();
-      if (/^#/.test(href)) {
+      if (href.startsWith('#')) {
         const targetEl = editor.dom.select(`${href},[name="${Strings.removeLeading(href, '#')}"]`);
         if (targetEl.length) {
           editor.selection.scrollIntoView(targetEl[0], true);

@@ -14,7 +14,7 @@ UnitTest.test('StructureSchemaRawTest', () => {
   const checkErr = (label: string, expectedPart: string, input: any, processor: StructureProcessor) => {
     StructureSchema.asRaw(label, processor, input).fold((err) => {
       const message = StructureSchema.formatError(err);
-      Assert.eq(label + '. Was looking to see if contained: ' + expectedPart + '.\nWas: ' + message, true, message.indexOf(expectedPart) > -1);
+      Assert.eq(label + '. Was looking to see if contained: ' + expectedPart + '.\nWas: ' + message, true, message.includes(expectedPart));
     }, (val) => {
       Assert.fail(label + '\nExpected error: ' + expectedPart + '\nWas success(' + JSON.stringify(val, null, 2) + ')');
     });

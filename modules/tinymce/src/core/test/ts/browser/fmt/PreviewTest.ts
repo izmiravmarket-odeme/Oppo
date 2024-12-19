@@ -209,47 +209,47 @@ describe('browser.tinymce.core.fmt.PreviewTest', () => {
       assert.isFalse(/font-weight:(bold|700)/.test(getCssText({ inline: 'b', preview: 'font-size' })),
         'Bold should not be when we only preview font-size');
 
-      assert.isTrue(/color:rgb\(255, 0, 0\)/.test(getCssText({ inline: 'custom', styles: { color: '#ff0000' }})),
+      assert.isTrue(getCssText({ inline: 'custom', styles: { color: '#ff0000' }}).includes('color:rgb(255, 0, 0)'),
         'Test preview of a custom element.');
 
-      assert.isTrue(/color:rgb\(255, 0, 0\)/.test(getCssText({ inline: 'invalid', styles: { color: '#ff0000' }})),
+      assert.isTrue(getCssText({ inline: 'invalid', styles: { color: '#ff0000' }}).includes('color:rgb(255, 0, 0)'),
         `Test preview of an invalid element shouldn't crash the editor .`);
 
-      assert.isTrue(/color:rgb\(0, 255, 0\)/.test(getCssText({ selector: 'tr', classes: [ 'preview' ] })),
+      assert.isTrue(getCssText({ selector: 'tr', classes: [ 'preview' ] }).includes('color:rgb(0, 255, 0)'),
         'Style is properly inherited in preview for partial element (like TR).');
 
-      assert.isTrue(/color:rgb\(255, 0, 0\)/.test(getCssText({ selector: 'li', classes: [ 'preview' ] })),
+      assert.isTrue(getCssText({ selector: 'li', classes: [ 'preview' ] }).includes('color:rgb(255, 0, 0)'),
         'For LI element default required parent is UL.');
 
-      assert.isTrue(/color:rgb\(0, 0, 255\)/.test(getCssText({ selector: 'ol li', classes: [ 'preview' ] })),
+      assert.isTrue(getCssText({ selector: 'ol li', classes: [ 'preview' ] }).includes('color:rgb(0, 0, 255)'),
         'Parent explicitly present in the selector will have preference.');
 
-      assert.isTrue(/color:rgb\(0, 0, 255\)/.test(getCssText({ selector: 'ol > li', classes: [ 'preview' ] })),
+      assert.isTrue(getCssText({ selector: 'ol > li', classes: [ 'preview' ] }).includes('color:rgb(0, 0, 255)'),
         'ol > li previewed properly.');
 
-      assert.isTrue(/color:rgb\(0, 0, 255\)/.test(getCssText({
+      assert.isTrue(getCssText({
         selector: 'ol.someClass > li#someId[title="someTitle"]',
         classes: [ 'preview' ]
-      })),
+      }).includes('color:rgb(0, 0, 255)'),
       'ol.someClass > li#someId[title="someTitle"] previewed properly.');
 
-      assert.isTrue(/color:rgb\(0, 0, 255\)/.test(getCssText({
+      assert.isTrue(getCssText({
         selector: 'ul + ol.someClass > li#someId',
         classes: [ 'preview' ]
-      })),
+      }).includes('color:rgb(0, 0, 255)'),
       'ul + ol.someClass > li#someId previewed properly.');
 
-      assert.isTrue(/color:rgb\(0, 0, 255\)/.test(getCssText({ selector: 'ul li ol li', classes: [ 'preview' ] })),
+      assert.isTrue(getCssText({ selector: 'ul li ol li', classes: [ 'preview' ] }).includes('color:rgb(0, 0, 255)'),
         'ul li ol li previewed properly.');
 
-      assert.isTrue(/color:rgb\(0, 255, 0\)/.test(getCssText({
+      assert.isTrue(getCssText({
         inline: 'span',
         styles: { color: '#00ff00' },
         attributes: {
           'lang': '%value',
           'data-mce-lang': Fun.constant(null)
         }
-      })), 'Format with variable attribute values');
+      }).includes('color:rgb(0, 255, 0)'), 'Format with variable attribute values');
     });
   });
 });

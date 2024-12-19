@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import { Arr, Optional } from '@ephox/katamari';
 import { SugarText, SugarElement } from '@ephox/sugar';
 
@@ -31,7 +32,7 @@ const stripPattern = (dom: DOMUtils, block: Node, pattern: BlockPattern): void =
 
 const applyPattern = BlockPatternUtils.createApplyPattern(stripPattern);
 
-const findPattern = BlockPatternUtils.findPattern((pattern, text, nuText) => text.indexOf(pattern.start) === 0 || nuText.indexOf(pattern.start) === 0);
+const findPattern = BlockPatternUtils.findPattern((pattern, text, nuText) => text.startsWith(pattern.start) || nuText.startsWith(pattern.start));
 
 const findPatterns = BlockPatternUtils.createFindPatterns(findPattern, true);
 

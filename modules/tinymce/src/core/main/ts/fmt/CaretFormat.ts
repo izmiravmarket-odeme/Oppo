@@ -55,6 +55,7 @@ const createCaretContainer = (fill: boolean) => {
 
 const trimZwspFromCaretContainer = (caretContainerNode: Node) => {
   const textNode = findFirstTextNode(caretContainerNode);
+  // eslint-disable-next-line @typescript-eslint/prefer-string-starts-ends-with
   if (textNode && textNode.data.charAt(0) === ZWSP) {
     textNode.deleteData(0, 1);
   }

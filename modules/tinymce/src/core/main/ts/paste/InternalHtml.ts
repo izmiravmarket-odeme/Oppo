@@ -11,7 +11,7 @@ const unmark = (html: string): string =>
   html.replace(internalMark, '');
 
 const isMarked = (html: string): boolean =>
-  html.indexOf(internalMark) !== -1;
+  html.includes(internalMark);
 
 export {
   mark,

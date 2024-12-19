@@ -52,7 +52,6 @@ const getWin = (selection: SimSelection): SugarElement<Window> => {
 // This is out of place but it's API so I can't remove it
 const range = SimRange.create;
 
-// tslint:disable-next-line:variable-name
 export const SimSelection = {
   domRange,
   relative,

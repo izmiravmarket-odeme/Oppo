@@ -125,7 +125,7 @@ const Styles = (settings: StylesSettings = {}, schema?: Schema): Styles => {
         }
 
         // Make sure not to split values like 'rgb(100, 50, 100);
-        const values = value.indexOf(',') > -1 ? [ value ] : value.split(' ');
+        const values = value.includes(',') ? [ value ] : value.split(' ');
         let i = values.length;
         while (i--) {
           if (values[i] !== values[0]) {
@@ -226,6 +226,7 @@ const Styles = (settings: StylesSettings = {}, schema?: Schema): Styles => {
       };
 
       if (css) {
+        // eslint-disable-next-line no-control-regex
         css = css.replace(/[\u0000-\u001F]/g, '');
 
         // Encode \" \' % and ; and : inside strings so they don't interfere with the style parsing
@@ -248,7 +249,7 @@ const Styles = (settings: StylesSettings = {}, schema?: Schema): Styles => {
             // Skip properties with double quotes and sequences like \" \' in their names
             // See 'mXSS Attacks: Attacking well-secured Web-Applications by using innerHTML Mutations'
             // https://cure53.de/fp170.pdf
-            if (name.indexOf(invisibleChar) !== -1 || name.indexOf('"') !== -1) {
+            if (name.includes(invisibleChar) || name.includes('"')) {
               continue;
             }
 

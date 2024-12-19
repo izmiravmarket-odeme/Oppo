@@ -48,7 +48,9 @@ const makeContextItem = (item: string | Menu.ContextMenuItem | Menu.SeparatorMen
             }
           }
         };
-      default:
+      case undefined:
+      case 'item':
+      default: {
         // case 'item', or anything else really
         const commonItem = item as Menu.ContextMenuItem;
         return {
@@ -57,6 +59,7 @@ const makeContextItem = (item: string | Menu.ContextMenuItem | Menu.SeparatorMen
           // disconnect the function from the menu item API bridge defines
           onAction: Fun.noarg(commonItem.onAction)
         };
+      }
     }
   }
 };

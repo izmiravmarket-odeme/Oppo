@@ -27,11 +27,11 @@ const document = (_item: Gene): undefined => {
 };
 
 const isText = (item: Gene): boolean => {
-  return item.name === GeneTypes.Text;
+  return item.name as GeneTypes === GeneTypes.Text;
 };
 
 const isComment = (item: Gene): boolean => {
-  return item.name === GeneTypes.Comment;
+  return item.name as GeneTypes === GeneTypes.Comment;
 };
 
 const isElement = (item: Gene): boolean => {
@@ -39,7 +39,7 @@ const isElement = (item: Gene): boolean => {
 };
 
 const isSpecial = (item: Gene): boolean => {
-  return item.name === GeneTypes.Special;
+  return item.name as GeneTypes === GeneTypes.Special;
 };
 
 const getLanguage = (item: Gene): Optional<string> =>

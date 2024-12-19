@@ -32,7 +32,7 @@ const rhs = (ws: WordScope): WordScope => {
 const lhs = (ws: WordScope): WordScope => {
   const word = ws.word;
   const whitelisted = Arr.exists(whitelist, (x) => {
-    return word.indexOf(x) > -1;
+    return word.includes(x);
   });
 
   const apostrophes = whitelisted ? 2 : 1;

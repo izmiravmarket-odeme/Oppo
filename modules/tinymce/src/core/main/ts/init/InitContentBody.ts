@@ -152,7 +152,7 @@ const createParser = (editor: Editor): DomParser => {
       // Add internal attribute if we need to we don't on a refresh of the document
       if (value && !node.attr(internalName)) {
         // Don't duplicate these since they won't get modified by any browser
-        if (value.indexOf('data:') === 0 || value.indexOf('blob:') === 0) {
+        if (value.startsWith('data:') || value.startsWith('blob:')) {
           continue;
         }
 
@@ -182,7 +182,7 @@ const createParser = (editor: Editor): DomParser => {
     while (i--) {
       const node = nodes[i];
       const type = node.attr('type') || 'no/type';
-      if (type.indexOf('mce-') !== 0) {
+      if (!type.startsWith('mce-')) {
         node.attr('type', 'mce-' + type);
       }
     }

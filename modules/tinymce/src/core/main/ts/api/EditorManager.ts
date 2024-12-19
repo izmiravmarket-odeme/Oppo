@@ -38,6 +38,8 @@ const globalEventDelegate = (e: EventUtilsEvent<UIEvent | Event>): void => {
       case 'resize':
         editor.dispatch('ResizeWindow', e as EventUtilsEvent<UIEvent>);
         break;
+      default:
+        break;
     }
   });
 };
@@ -220,7 +222,7 @@ const EditorManager: EditorManager = {
         // tinymce.full.js tinymce.full.min.js tinymce.full.dev.js
         const srcScript = src.substring(src.lastIndexOf('/'));
         if (/tinymce(\.full|\.jquery|)(\.min|\.dev|)\.js/.test(src)) {
-          if (srcScript.indexOf('.min') !== -1) {
+          if (srcScript.includes('.min')) {
             suffix = '.min';
           }
 
@@ -234,7 +236,7 @@ const EditorManager: EditorManager = {
       if (!baseURL && document.currentScript) {
         const src = (document.currentScript as HTMLScriptElement).src;
 
-        if (src.indexOf('.min') !== -1) {
+        if (src.includes('.min')) {
           suffix = '.min';
         }
 
@@ -667,6 +669,8 @@ const EditorManager: EditorManager = {
 
         return true;
       }
+      default:
+        break;
     }
 
     // Run command on active editor
