@@ -203,8 +203,8 @@ describe('browser.tinymce.themes.silver.window.SilverInlineDialogTest', () => {
 
   Arr.each([
     { label: 'Modal', params: { }},
-    { label: 'Inline toolbar', params: { inline: 'toolbar' as 'toolbar' }},
-    { label: 'Inline cursor', params: { inline: 'cursor' as 'cursor' }},
+    { label: 'Inline toolbar', params: { inline: 'toolbar' as const }},
+    { label: 'Inline cursor', params: { inline: 'cursor' as const }},
   ], (test) => {
     it('TINY-9520: Modal focus testing for type: ' + test.label, async () => {
       const editor = hook.editor();

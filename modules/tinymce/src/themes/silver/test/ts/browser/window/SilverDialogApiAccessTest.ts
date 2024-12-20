@@ -84,7 +84,7 @@ describe('browser.tinymce.themes.silver.window.SilverDialogApiAccessTest', () =>
 
   Arr.each([
     { label: 'Modal', params: { }},
-    { label: 'Inline', params: { inline: 'toolbar' as 'toolbar' }}
+    { label: 'Inline', params: { inline: 'toolbar' as const }}
   ], (test) => {
     context(test.label, () => {
       it('Open dialog, click a button, close the dialog and assert API data', async () => {

@@ -72,7 +72,7 @@ const registerCommands = (editor: Editor) => {
 };
 
 const getAdditionalColors = (hasCustom: boolean): Menu.ChoiceMenuItemSpec[] => {
-  const type: 'choiceitem' = 'choiceitem';
+  const type = 'choiceitem' as const;
   const remove = {
     type,
     text: 'Remove color',

@@ -86,7 +86,7 @@ describe('browser.tinymce.themes.silver.window.SilverDialogBlockTest', () => {
 
   Arr.each([
     { label: 'Modal', params: { }},
-    { label: 'Inline', params: { inline: 'toolbar' as 'toolbar' }}
+    { label: 'Inline', params: { inline: 'toolbar' as const }}
   ], (test) => {
     context(test.label, () => {
       beforeEach(() => {

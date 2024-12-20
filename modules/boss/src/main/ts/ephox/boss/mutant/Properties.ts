@@ -35,7 +35,7 @@ const isComment = (item: Gene): boolean => {
 };
 
 const isElement = (item: Gene): boolean => {
-  return item.name !== undefined && item.name !== GeneTypes.Text && item.name !== GeneTypes.Comment;
+  return item.name !== undefined && item.name as GeneTypes !== GeneTypes.Text && item.name as GeneTypes !== GeneTypes.Comment;
 };
 
 const isSpecial = (item: Gene): boolean => {

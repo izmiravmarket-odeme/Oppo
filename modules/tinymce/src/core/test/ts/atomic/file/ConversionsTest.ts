@@ -14,7 +14,9 @@ describe('atomic.tinymce.core.file.ConversionsTest', () => {
     KAssert.eqOptional('Blob uri', Optional.none(), parseDataUri('blob:70BE8432-BA4D-4787-9AB9-86563351FBF7'));
     KAssert.eqOptional(
       'Data with spaces, tabs and line breaks',
+      // eslint-disable-next-line @stylistic/no-tabs
       Optional.some({ type: 'image/png', data: 'SGVsbG8sI\r\n  Hdv		cmxkIQ==', base64Encoded: true }),
+      // eslint-disable-next-line @stylistic/no-tabs
       parseDataUri('data:image/png;base64,SGVsbG8sI\r\n  Hdv		cmxkIQ==')
     );
     KAssert.eqOptional(

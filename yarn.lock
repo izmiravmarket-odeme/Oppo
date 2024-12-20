@@ -2091,10 +2091,10 @@
   dependencies:
     defer-to-connect "^2.0.1"
 
-"@tinymce/eslint-plugin@2.4.0-feature.20241218055545180.sha7e418e7":
-  version "2.4.0-feature.20241218055545180.sha7e418e7"
-  resolved "https://registry.yarnpkg.com/@tinymce/eslint-plugin/-/eslint-plugin-2.4.0-feature.20241218055545180.sha7e418e7.tgz#198b40392990fb6cc96e8c93f28b05658b07b4d9"
-  integrity sha512-QOy8SeMPb8gUOUWubRZqC3agqVbimITNvksEhOUgRhNfhfrzXmbyOAWGXd7bVvtq4nXZJcMUF0Xfmy4t5uCPaw==
+"@tinymce/eslint-plugin@2.4.0-feature.20241219071000939.shad1a9f9f":
+  version "2.4.0-feature.20241219071000939.shad1a9f9f"
+  resolved "https://registry.yarnpkg.com/@tinymce/eslint-plugin/-/eslint-plugin-2.4.0-feature.20241219071000939.shad1a9f9f.tgz#b3847d692c818749bde00e8830e2e2d4c8abbc95"
+  integrity sha512-PVd0TMNpO/dwB2suhoNyxx51voGPzOMcF9wzy8xrjYArpni6xYOj4CEDJqcDOiIIzCbmFzxUbXsJs7x5MP8Lvw==
   dependencies:
     "@stylistic/eslint-plugin" "^2.12.1"
     "@typescript-eslint/eslint-plugin" "^8.18.1"

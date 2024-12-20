@@ -3,32 +3,32 @@ import { Arr, Optional } from '@ephox/katamari';
 const units = {
   // we don't really support all of these different ways to express a length
   unsupportedLength: [
-    'em' as 'em',
-    'ex' as 'ex',
-    'cap' as 'cap',
-    'ch' as 'ch',
-    'ic' as 'ic',
-    'rem' as 'rem',
-    'lh' as 'lh',
-    'rlh' as 'rlh',
-    'vw' as 'vw',
-    'vh' as 'vh',
-    'vi' as 'vi',
-    'vb' as 'vb',
-    'vmin' as 'vmin',
-    'vmax' as 'vmax',
-    'cm' as 'cm',
-    'mm' as 'mm',
-    'Q' as 'Q',
-    'in' as 'in',
-    'pc' as 'pc',
-    'pt' as 'pt',
-    'px' as 'px'
+    'em' as const,
+    'ex' as const,
+    'cap' as const,
+    'ch' as const,
+    'ic' as const,
+    'rem' as const,
+    'lh' as const,
+    'rlh' as const,
+    'vw' as const,
+    'vh' as const,
+    'vi' as const,
+    'vb' as const,
+    'vmin' as const,
+    'vmax' as const,
+    'cm' as const,
+    'mm' as const,
+    'Q' as const,
+    'in' as const,
+    'pc' as const,
+    'pt' as const,
+    'px' as const
   ],
   // these are the length values we do support
-  fixed: [ 'px' as 'px', 'pt' as 'pt' ],
-  relative: [ '%' as '%' ],
-  empty: [ '' as '' ]
+  fixed: [ 'px' as const, 'pt' as const ],
+  relative: [ '%' as const ],
+  empty: [ '' as const ]
 };
 
 type Units = {

@@ -121,8 +121,7 @@ const renderLeafLabel = ({
     dom: {
       tag: 'div',
       classes: [ 'tox-tree--leaf__label', 'tox-trbtn' ]
-        .concat(visible ? [ 'tox-tree--leaf__label--visible' ] : [])
-      ,
+        .concat(visible ? [ 'tox-tree--leaf__label--visible' ] : []),
     },
     components,
     role: 'treeitem',

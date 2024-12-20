@@ -38,7 +38,7 @@ const memento = (mem: MementoRecord, rawProcessors: Processors): RepresentingBeh
 const withComp = <D, I = D>(optInitialValue: Optional<I>, getter: (c: AlloyComponent) => D, setter: (c: AlloyComponent, v: I) => void): RepresentingBehaviour =>
   Representing.config({
     store: {
-      mode: 'manual' as 'manual',
+      mode: 'manual' as const,
       ...optInitialValue.map((initialValue) => ({ initialValue })).getOr({}),
       getValue: getter,
       setValue: setter

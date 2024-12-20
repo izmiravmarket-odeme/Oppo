@@ -11,8 +11,8 @@ const getProp = <K extends keyof Element>(propName: K, elm: SugarElement<Element
 const getComputedSizeProp = (propName: string, elm: SugarElement<Element>): number =>
   parseInt(Css.get(elm, propName), 10);
 
-const getClientWidth = Fun.curry(getProp, 'clientWidth' as 'clientWidth');
-const getClientHeight = Fun.curry(getProp, 'clientHeight' as 'clientHeight');
+const getClientWidth = Fun.curry(getProp, 'clientWidth' as const);
+const getClientHeight = Fun.curry(getProp, 'clientHeight' as const);
 const getMarginTop = Fun.curry(getComputedSizeProp, 'margin-top');
 const getMarginLeft = Fun.curry(getComputedSizeProp, 'margin-left');
 

@@ -42,7 +42,7 @@ describe('browser.tinymce.themes.silver.window.SilverDialogSliderApiTest', () =>
 
   Arr.each([
     { label: 'Modal', params: { }},
-    { label: 'Inline', params: { inline: 'toolbar' as 'toolbar' }}
+    { label: 'Inline', params: { inline: 'toolbar' as const }}
   ], (test) => {
     context(test.label, () => {
       it('TINY-10428: dialog onChange handler should fire when using arrow key on slider', async () => {

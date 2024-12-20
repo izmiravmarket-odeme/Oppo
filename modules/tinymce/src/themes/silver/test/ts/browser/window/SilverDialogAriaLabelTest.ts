@@ -68,7 +68,7 @@ describe('browser.tinymce.themes.silver.window.SilverDialogAriaLabelTest', () =>
 
   Arr.each([
     { label: 'Modal', params: { }},
-    { label: 'Inline', params: { inline: 'toolbar' as 'toolbar' }}
+    { label: 'Inline', params: { inline: 'toolbar' as const }}
   ], (test) => {
     context(test.label, () => {
       it(`Dialog should have "aria-label" or "aria-labelledby" for config "${JSON.stringify(test.params)}"`, () => {
