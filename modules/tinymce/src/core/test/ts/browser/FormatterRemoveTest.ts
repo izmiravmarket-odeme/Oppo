@@ -619,11 +619,11 @@ describe('browser.tinymce.core.FormatterRemoveTest', () => {
 
   it('TINY-8755: Non-internal attributes are not removed', () => {
     const editor = hook.editor();
-    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @stylistic/max-len
     TinyApis(editor).setRawContent('<p><strong>bold<span data-field-type="TEXT"><span class="my-class-1"></span><span class="my-class-2"><span style="display: flex; align-items: flex-start;" data-mce-style="display: flex; align-items: flex-start;"><span class="my-class-3">' + ZWSP + '</span></span></span></span>text</strong></p>');
     TinySelections.setSelection(editor, [ 0, 0, 0 ], 2, [ 0, 0, 2 ], 2);
     editor.formatter.remove('bold');
-    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @stylistic/max-len
     TinyAssertions.assertRawContent(editor, '<p><strong>bo</strong>ld<span data-field-type="TEXT"><span class="my-class-1"></span><span class="my-class-2"><span style="display: flex; align-items: flex-start;" data-mce-style="display: flex; align-items: flex-start;"><span class="my-class-3">' + ZWSP + '</span></span></span></span>te<strong>xt</strong></p>');
   });
 });

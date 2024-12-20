@@ -1,4 +1,4 @@
-// eslint-disable-next-line max-len
+// eslint-disable-next-line @stylistic/max-len
 import {
   AddEventsBehaviour, AlloyComponent, AlloyEvents, AlloySpec,
   SplitFloatingToolbar as AlloySplitFloatingToolbar,

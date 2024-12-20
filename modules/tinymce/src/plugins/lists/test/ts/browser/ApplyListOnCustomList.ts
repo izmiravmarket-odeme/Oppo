@@ -17,7 +17,7 @@ describe('browser.tinymce.plugins.lists.ApplyListOnParagraphWithStylesTest', () 
   it('TINY-9998: Apply list to nested custom list should keep the original list structure', () => {
     const editor = hook.editor();
     const multilistContent = ( className: string, listType: 'ul' | 'ol' = 'ul' ) =>
-      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @stylistic/max-len
       `<${listType}${Strings.isEmpty(className) ? '' : ` class="${className}"`}><li>a<${listType}${Strings.isEmpty(className) ? '' : ` class="${className}"`}><li>a1</li><li>a2</li></${listType}></li><li>b<${listType}${Strings.isEmpty(className) ? '' : ` class="${className}"`}><li>b1</li><li>b2</li></${listType}></li></${listType}>`;
     editor.setContent(multilistContent('tox-checklist'));
     editor.execCommand('SelectAll');

@@ -229,7 +229,7 @@ describe('browser.tinymce.core.fmt.ExpandRangeTest', () => {
 
     it('TINY-10154: should expand over the nested summary content instead of parent details body element', () => {
       const editor = hook.editor();
-      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @stylistic/max-len
       editor.setContent(`<details class="mce-accordion" open="open"><summary class="mce-accordion-summary">Accordion summary 1</summary><div class="mce-accordion-body"><p>Accordion body1</p><details class="mce-accordion" open="open"><summary class="mce-accordion-summary">Accordion summary1.1</summary><div class="mce-accordion-body"><p>Accordion body 1.1</p></div></details></div></details>`);
       const rng = expandRng(editor, [ 0, 1, 1, 0, 0 ], 2, [ 0, 1, 1, 0, 0 ], 2, [{ block: 'h1', deep: true, remove: 'all', split: true }], false);
       assertRange(editor, rng, [ 0, 1, 1 ], 0, [ 0, 1, 1, 0, 0 ], 20);

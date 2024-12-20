@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len */
 import { beforeEach, describe, it } from '@ephox/bedrock-client';
 import { TinyHooks, TinySelections, TinyAssertions } from '@ephox/wrap-mcagar';
 

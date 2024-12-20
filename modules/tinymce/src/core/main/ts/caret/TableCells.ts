@@ -1,4 +1,4 @@
-// eslint-disable-next-line max-len
+// eslint-disable-next-line @stylistic/max-len
 import { Arr, Fun, Optional } from '@ephox/katamari';
 import { SelectorFilter, SugarElement } from '@ephox/sugar';
 
