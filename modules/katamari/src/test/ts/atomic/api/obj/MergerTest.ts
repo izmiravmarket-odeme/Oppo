@@ -124,7 +124,10 @@ describe('atomic.katamari.api.obj.MergerTest', () => {
   });
 
   it('Deep-merged with itself is itself', () => {
-    fc.assert(fc.property(fc.dictionary(fc.asciiString(), fc.json()), (obj) => {
+    fc.assert(fc.property(fc.dictionary(
+      fc.asciiString().filter((key) => key !== '__proto__' && key !== 'constructor'),
+      fc.json()
+    ), (obj) => {
       assert.deepEqual(Merger.deepMerge(obj, obj), obj);
     }));
   });

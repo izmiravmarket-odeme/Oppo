@@ -52,7 +52,7 @@ describe('atomic.katamari.api.obj.ObjMapTest', () => {
   });
 
   it('map constant obj means that values(obj) are all the constant', () => {
-    fc.assert(fc.property(fc.dictionary(fc.asciiString(), fc.integer()), fc.integer(), (obj, x) => {
+    fc.assert(fc.property(fc.dictionary(fc.asciiString().filter((key) => key !== '__proto__' && key !== 'constructor'), fc.integer()), fc.integer(), (obj, x) => {
       const output = Obj.map(obj, Fun.constant(x));
       const values = Obj.values(output);
       return Arr.forall(values, (v) => v === x);

@@ -24,18 +24,18 @@ interface TestBounds {
 UnitTest.test('Atomic Test: ui.slider.SliderModelTest', () => {
   const arb1Up = fc.nat().map((num) => num + 1);
 
-  const arbRanged = fc.nat().chain((min) => arb1Up.chain((width) => {
-    const max = min + width;
-    return fc.float({ min: min - 1, max: max + 1 }).map((value) => {
-      const v = Math.round(value);
-
-      return {
+  const arbRanged = fc.nat().chain((min) =>
+    arb1Up.chain((width) => {
+      const max = min + width;
+      // Instead of generating a float and rounding it,
+      // generate an integer in the intended range.
+      return fc.integer({ min: min - 1, max: max + 1 }).map((v) => ({
         min,
         max,
         value: v
-      };
-    });
-  }));
+      }));
+    })
+  );
 
   const arbData = fc.tuple(arbRanged, arb1Up, fc.boolean(), fc.boolean(), fc.boolean()).map(
     (arr: [ { min: number; max: number; value: number }, number, boolean, boolean, boolean ]): TestData => ({
