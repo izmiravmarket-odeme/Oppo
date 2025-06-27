@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react';
 
-import { classes } from '../utils/Styles';
+import * as Bem from '../utils/Bem';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
@@ -14,7 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={classes([ 'tox-button' ])}
+      className={Bem.block('tox-button', [ 'naked' ])}
       {...props}
     >
       {children}

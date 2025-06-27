@@ -10,11 +10,11 @@ import type { PartialStoryFn } from 'storybook/internal/csf';
 
 // @ts-expect-error the bundler handles this just fine but tsc is not happy with it
 import '@tinymce/oxide/build/skins/ui/default/skin.css';
-import { classes } from '../src/main/ts/utils/Styles';
+import * as Bem from '../src/main/ts/utils/Bem';
 
 const preview: Preview = {
   decorators: [
-    (Story: PartialStoryFn<ReactRenderer>): JSX.Element => <div className={classes([ 'tox' ])}><Story /></div>
+    (Story: PartialStoryFn<ReactRenderer>): JSX.Element => <div className={Bem.block('tox')}><Story /></div>
   ],
   parameters: {
     controls: {
