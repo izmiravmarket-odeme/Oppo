@@ -7,7 +7,6 @@ import { assert } from 'chai';
 import Editor from 'tinymce/core/api/Editor';
 import Env from 'tinymce/core/api/Env';
 import { BeforeGetContentEvent, BeforeSetContentEvent, GetContentEvent, SetContentEvent } from 'tinymce/core/api/EventTypes';
-import Entities from 'tinymce/core/api/html/Entities';
 import AstNode from 'tinymce/core/api/html/Node';
 import HtmlSerializer from 'tinymce/core/api/html/Serializer';
 import { EditorEvent } from 'tinymce/core/api/util/EventDispatcher';
@@ -288,10 +287,9 @@ describe('browser.tinymce.core.content.EditorContentTest', () => {
         });
 
         it('TINY-10088: Preserve attributes with self closed HTML tag', () => {
-          const rawValue = 'title=<br/>';
-          const content = Env.browser.isFirefox() ?
-            `<div data-some-attribute="${rawValue}">abc</div>` :
-            `<div data-some-attribute="${Entities.encodeRaw(rawValue, true)}">abc</div>`;
+          const content = Env.browser.isFirefox()
+            ? '<div data-some-attribute="title=&lt;br/&gt;">abc</div>'
+            : '<div data-some-attribute="title=<br/>">abc</div>';
           const editor = hook.editor();
           editor.setContent(content);
           TinyAssertions.assertContent(editor, content, { format: 'raw' });
