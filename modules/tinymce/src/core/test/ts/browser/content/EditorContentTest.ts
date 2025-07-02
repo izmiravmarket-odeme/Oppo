@@ -286,7 +286,7 @@ describe('browser.tinymce.core.content.EditorContentTest', () => {
         });
 
         it('TINY-10088: Preserve attributes with self closed HTML tag', () => {
-          const content = '<div data-some-attribute="title=<br/>">abc</div>';
+          const content = '<div data-some-attribute="title=&lt;br/&gt;">abc</div>';
           const editor = hook.editor();
           editor.setContent(content);
           TinyAssertions.assertContent(editor, content, { format: 'raw' });
