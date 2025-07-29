@@ -1,11 +1,11 @@
-TinyMCE - JavaScript Library for Rich Text Editing
+Oppo Editor - JavaScript Library for Rich Text Editing
 ===================================================
 
-Building TinyMCE
+Building Oppo Editor
 -----------------
 See the monorepo root readme file for installation instructions.
 
-Now, build TinyMCE by using `grunt`. If you don't have `grunt-cli` installed globally, prefix with `yarn` to execute the local grunt.
+Now, build Oppo Editor by using `grunt`. If you don't have `grunt-cli` installed globally, prefix with `yarn` to execute the local grunt.
 ```
 $ yarn grunt
 ```
@@ -13,7 +13,7 @@ $ yarn grunt
 Build tasks
 ------------
 `grunt`
-Lints, compiles, minifies and creates release packages for TinyMCE. This will produce the production ready packages.
+Lints, compiles, minifies and creates release packages for Oppo Editor. This will produce the production ready packages.
 
 `grunt start`
 Starts a webpack-dev-server that compiles the core, themes, plugins and all demos. Go to `localhost:3000` for a list of links to all the demo pages.
@@ -54,9 +54,9 @@ Bundle themes and plugins into a single file
 
 Minifies the core, adds the silver theme and adds the table and paste plugin into tinymce.min.js.
 
-Contributing to the TinyMCE project
+Contributing to the Oppo Editor project
 ------------------------------------
-TinyMCE is an open source software project and we encourage developers to contribute patches and code to be included in the main package of TinyMCE.
+Oppo Editor is an open source software project and we encourage developers to contribute patches and code to be included in the main package of Oppo Editor.
 
 __Basic Rules__
 
@@ -69,7 +69,7 @@ These basic rules ensures that the contributed code remains open source and unde
 
 __How to Contribute to the Code__
 
-The TinyMCE source code is [hosted on Github](https://github.com/tinymce/tinymce). Through Github you can submit pull requests and log new bugs and feature requests.
+The Oppo Editor source code is [hosted on Github](https://github.com/tinymce/tinymce). Through Github you can submit pull requests and log new bugs and feature requests.
 
 When you submit a pull request, you will get a notice about signing the __Contributors License Agreement (CLA)__.
 You should have a __valid email address on your GitHub account__, and you will be sent a key to verify your identity and digitally sign the agreement.
